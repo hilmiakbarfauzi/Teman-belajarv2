@@ -1,0 +1,77 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --- Helper Functions ---
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Cek apakah user adalah guru dengan membaca dokumen user mereka
+    function isGuru() {
+      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'guru';
+    }
+
+    // --- Collection Rules ---
+
+    // 1. Users Collection
+    // User bisa baca/tulis datanya sendiri. Guru bisa baca semua user (opsional, untuk dashboard).
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isGuru();
+      allow write: if isOwner(userId);
+    }
+
+    // 2. Absensi Collection (Sesuai kode di kelas.html)
+    // ID Dokumen: {userId}_{tanggal} -> contoh: "user123_2024-12-18"
+    match /absensi/{docId} {
+      // Guru boleh baca semua, Siswa boleh baca punya sendiri (cek ID dokumen mengandung UID mereka)
+      allow read: if isGuru() || (isSignedIn() && docId.matches(request.auth.uid + '_.*'));
+      
+      // Siswa boleh absen (create) jika UID di data cocok dengan UID login
+      allow create: if isSignedIn() 
+                    && request.resource.data.uid == request.auth.uid
+                    && docId == request.auth.uid + '_' + request.resource.data.tanggal;
+      
+      // Update/Delete tidak diizinkan untuk siswa (data immutable), Guru boleh jika perlu
+      allow update, delete: if isGuru();
+    }
+
+    // 3. Quiz Results
+    match /quiz_results/{docId} {
+      allow read: if true; // Public read (untuk leaderboard) atau restrict ke isOwner/isGuru
+      allow write: if isOwner(docId);
+    }
+    
+    // 4. Video Pembelajaran Collection
+    // Collection untuk menyimpan link H5P video per indikator
+    match /video_pembelajaran/{indicatorId} {
+      // Semua user bisa baca (untuk tampil di halaman pembelajaran/quiz)
+      allow read: if true;
+      
+      // Hanya guru yang bisa create/update/delete video links
+      allow create, update, delete: if isGuru();
+    }
+    
+    // 5. Discussion Rules (Fitur Baru)
+    match /discussion_comments/{commentId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isGuru() || (isSignedIn() && resource.data.userId == request.auth.uid);
+    }
+    
+    // 6. Scores / Hasil Belajar (Fitur Baru)
+    match /scores/{scoreId} {
+       allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+       allow read: if isGuru() || (isSignedIn() && resource.data.userId == request.auth.uid);
+    }
+    
+    // 7. Default Block
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

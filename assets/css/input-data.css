@@ -1,0 +1,162 @@
+/* --- Modern Input Data Page Styles --- */
+
+/* 1. Page Background & Layout */
+body {
+    background-color: #f8fafc;
+    /* Light soothing background */
+    /* Ensure navbar doesn't overlap content */
+}
+
+/* 2. Main Card Container */
+.input-container {
+    max-width: 480px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #edf2f7;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Subtle top gradient accent */
+.input-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #38a169 0%, #2c7a7b 100%);
+}
+
+.input-container h2 {
+    color: #2d3748;
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.input-container p.subtitle {
+    color: #718096;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* 3. Form Form Elements */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4a5568;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-left: 4px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a0aec0;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+/* Modern Input Style */
+.input-container input[type="text"] {
+    width: 100%;
+    padding: 14px 16px 14px 45px;
+    /* Space for icon */
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #2d3748;
+    background: #f7fafc;
+    transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]::placeholder {
+    color: #cbd5e0;
+}
+
+/* Focus State */
+.input-container input[type="text"]:focus {
+    border-color: #38a169;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(56, 161, 105, 0.1);
+    outline: none;
+}
+
+.input-container input[type="text"]:focus+i,
+.input-wrapper:focus-within i {
+    color: #38a169;
+}
+
+/* 4. Action Button */
+.input-container button[type="submit"] {
+    background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    width: 100%;
+    margin-top: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(56, 161, 105, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.input-container button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(56, 161, 105, 0.4);
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+.input-container button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .input-container {
+        margin: 30px 20px;
+        padding: 30px 20px;
+    }
+
+    .input-container h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,1012 @@
+/* ================================================
+   QUIZ STYLESHEET - Teman Belajar Theme
+   Modern, Professional, Consistent Design
+   ================================================ */
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(135deg, #009A6E 0%, #282e2c 100%);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0 0 15px;
+    color: white !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    opacity: 1;
+    color: white !important;
+    margin: 0;
+}
+
+/* --- Quiz Container --- */
+.quiz-container {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+/* --- Progress Indicator --- */
+.quiz-progress {
+    background: white;
+    border-radius: 15px;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    border: 2px solid #e0e7ff;
+    animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.progress-text {
+    font-size: 1rem;
+    color: #1e40af;
+    font-weight: 700;
+}
+
+.progress-text i {
+    margin-right: 8px;
+    color: #2563eb;
+}
+
+.progress-bar-container {
+    flex: 1;
+    min-width: 200px;
+    height: 10px;
+    background: #e0e7ff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+    border-radius: 10px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+}
+
+/* --- Quiz Form Card --- */
+#quiz-form {
+    background: white;
+    border-radius: 20px;
+    padding: 45px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    border: 1px solid #f0f0f0;
+    animation: fadeIn 0.6s ease-in;
+}
+
+/* --- Question Item --- */
+.soal-item {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.soal-item:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.soal-item p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #1f2937;
+    margin: 0 0 22px;
+    text-align: left;
+}
+
+.soal-item strong {
+    color: #111827;
+    font-weight: 700;
+}
+
+/* Question Number Badge */
+.question-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 38px;
+    font-weight: 700;
+    margin-right: 12px;
+    font-size: 1.05rem;
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+    vertical-align: middle;
+}
+
+/* --- Custom Radio Buttons --- */
+.soal-item label {
+    display: block;
+    padding: 16px 22px;
+    padding-left: 55px;
+    margin-bottom: 14px;
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: #374151;
+    position: relative;
+    text-align: left;
+}
+
+.soal-item label:hover {
+    background: #f0fdf4;
+    border-color: #86efac;
+    transform: translateX(6px);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.1);
+}
+
+.soal-item input[type="radio"] {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 2.5px solid #d1d5db;
+    border-radius: 50%;
+    background: white;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.soal-item input[type="radio"]:checked {
+    border-color: #16a34a;
+    background: #16a34a;
+    box-shadow: 0 0 0 5px rgba(22, 163, 74, 0.15);
+}
+
+.soal-item input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+}
+
+.soal-item label:has(input[type="radio"]:checked) {
+    background: linear-gradient(135deg, rgba(22, 163, 74, 0.15) 0%, rgba(16, 185, 129, 0.1) 100%);
+    border-color: #16a34a;
+    color: #065f46;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(22, 163, 74, 0.2);
+}
+
+/* --- Submit Button --- */
+.submit-btn {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    padding: 18px 45px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    max-width: 450px;
+    display: block;
+    margin: 35px auto 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.submit-btn:hover::before {
+    width: 500px;
+    height: 500px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.5);
+}
+
+.submit-btn:active {
+    transform: translateY(-2px);
+}
+
+.submit-btn i {
+    margin-left: 12px;
+    transition: transform 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.submit-btn:hover i {
+    transform: translateX(6px);
+}
+
+.submit-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Result Display --- */
+#hasil-kuis {
+    margin-top: 30px;
+}
+
+.result-card {
+    background: white;
+    border-radius: 25px;
+    padding: 50px 40px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.result-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+}
+
+.result-card.success::before {
+    background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+}
+
+.result-card.fail::before {
+    background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+}
+
+.result-card.success {
+    border: 3px solid #10b981;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.02) 100%);
+}
+
+.result-card.fail {
+    border: 3px solid #ef4444;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(220, 38, 38, 0.02) 100%);
+}
+
+.result-icon {
+    font-size: 5rem;
+    margin-bottom: 25px;
+    animation: bounceIn 0.8s ease-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.result-card.success .result-icon {
+    color: #10b981;
+}
+
+.result-card.fail .result-icon {
+    color: #ef4444;
+}
+
+.result-card h2 {
+    font-size: 2.2rem;
+    margin: 0 0 15px;
+    font-weight: 800;
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-card.success h2 {
+    color: #065f46;
+}
+
+.result-card.fail h2 {
+    color: #991b1b;
+}
+
+.result-score {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 20px 0;
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.result-card.success .result-score {
+    color: #10b981;
+}
+
+.result-card.fail .result-score {
+    color: #ef4444;
+}
+
+.result-card p {
+    font-size: 1.15rem;
+    color: #6b7280;
+    margin: 0 0 35px;
+    line-height: 1.7;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.result-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.6s ease-out 0.5s both;
+}
+
+.btn-retry,
+.btn-next {
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-retry {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+}
+
+.btn-retry:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+
+.btn-next {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+}
+
+.btn-next:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .hero {
+        padding: 45px 20px;
+    }
+
+    .hero h1 {
+        font-size: 1.7rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    #quiz-form {
+        padding: 30px 22px;
+        border-radius: 18px;
+    }
+
+    .quiz-progress {
+        padding: 18px 20px;
+    }
+
+    .progress-text {
+        font-size: 0.9rem;
+    }
+
+    .soal-item {
+        margin-bottom: 35px;
+        padding-bottom: 35px;
+    }
+
+    .soal-item p {
+        font-size: 1.05rem;
+    }
+
+    .soal-item label {
+        padding: 14px 18px;
+        padding-left: 50px;
+        font-size: 0.98rem;
+    }
+
+    .soal-item input[type="radio"] {
+        left: 15px;
+        width: 22px;
+        height: 22px;
+    }
+
+    .submit-btn {
+        padding: 16px 35px;
+        font-size: 1.05rem;
+    }
+
+    .result-card {
+        padding: 40px 25px;
+    }
+
+    .result-card h2 {
+        font-size: 1.8rem;
+    }
+
+    .result-score {
+        font-size: 2.5rem;
+    }
+
+    .result-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-retry,
+    .btn-next {
+        width: 100%;
+        justify-content: center;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .question-number {
+        width: 34px;
+        height: 34px;
+        line-height: 34px;
+        font-size: 1rem;
+        margin-right: 10px;
+    }
+
+    .progress-bar-container {
+        min-width: 150px;
+    }
+}
+
+/* --- Loading State --- */
+.quiz-loading {
+    text-align: center;
+    padding: 50px;
+    color: #6b7280;
+}
+
+.quiz-loading i {
+    font-size: 3.5rem;
+    color: #2563eb;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- Utility Classes --- */
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+
+.hero h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0 0 15px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    margin: 0;
+}
+
+/* --- Quiz Container --- */
+.quiz-container {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+/* --- Progress Indicator --- */
+.quiz-progress {
+    background: white;
+    border-radius: 15px;
+    padding: 20px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.progress-text {
+    font-size: 1rem;
+    color: #4a5568;
+    font-weight: 600;
+}
+
+.progress-bar-container {
+    flex: 1;
+    min-width: 200px;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+/* --- Quiz Form Card --- */
+#quiz-form {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+/* --- Question Item --- */
+.soal-item {
+    margin-bottom: 35px;
+    padding-bottom: 35px;
+    border-bottom: 2px solid #f7fafc;
+}
+
+.soal-item:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.soal-item p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #2d3748;
+    margin: 0 0 20px;
+}
+
+.soal-item strong {
+    color: #1a202c;
+    font-weight: 700;
+}
+
+/* Question Number Badge */
+.question-number {
+    display: inline-block;
+    background: linear-gradient(135deg, #009A6E 0%, #282e2c 100%);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-weight: 700;
+    margin-right: 12px;
+    font-size: 1rem;
+}
+
+/* --- Custom Radio Buttons --- */
+.soal-item label {
+    display: block;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a5568;
+    position: relative;
+    padding-left: 50px;
+}
+
+.soal-item label:hover {
+    background: #edf2f7;
+    border-color: #cbd5e0;
+    transform: translateX(5px);
+}
+
+.soal-item input[type="radio"] {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 2px solid #cbd5e0;
+    border-radius: 50%;
+    background: white;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.soal-item input[type="radio"]:checked {
+    border-color: #009A6E;
+    background: #009A6E;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.soal-item input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+.soal-item input[type="radio"]:checked+label,
+.soal-item label:has(input[type="radio"]:checked) {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-color: #009A6E;
+    color: #1a202c;
+    font-weight: 600;
+}
+
+/* --- Submit Button --- */
+.submit-btn {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 30px auto 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.submit-btn:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(72, 187, 120, 0.5);
+}
+
+.submit-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Add icon to submit button */
+.submit-btn i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* --- Result Display --- */
+#hasil-kuis {
+    margin-top: 30px;
+}
+
+.result-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.result-card.success {
+    border: 3px solid #48bb78;
+    background: linear-gradient(135deg, rgba(72, 187, 120, 0.05) 0%, rgba(56, 161, 105, 0.05) 100%);
+}
+
+.result-card.fail {
+    border: 3px solid #f56565;
+    background: linear-gradient(135deg, rgba(245, 101, 101, 0.05) 0%, rgba(229, 62, 62, 0.05) 100%);
+}
+
+.result-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.result-card.success .result-icon {
+    color: #48bb78;
+}
+
+.result-card.fail .result-icon {
+    color: #f56565;
+}
+
+.result-card h2 {
+    font-size: 2rem;
+    margin: 0 0 15px;
+    font-weight: 800;
+}
+
+.result-card p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    margin: 0 0 30px;
+}
+
+.result-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-retry,
+.btn-next {
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-retry {
+    background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(237, 137, 54, 0.4);
+}
+
+.btn-retry:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(237, 137, 54, 0.5);
+}
+
+.btn-next {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-next:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    #quiz-form {
+        padding: 25px 20px;
+    }
+
+    .quiz-progress {
+        padding: 15px 20px;
+    }
+
+    .soal-item p {
+        font-size: 1rem;
+    }
+
+    .soal-item label {
+        padding: 12px 15px;
+        padding-left: 45px;
+        font-size: 0.95rem;
+    }
+
+    .soal-item input[type="radio"] {
+        left: 12px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .submit-btn {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+
+    .result-card {
+        padding: 30px 20px;
+    }
+
+    .result-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .result-actions {
+        flex-direction: column;
+    }
+
+    .btn-retry,
+    .btn-next {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* --- Loading State --- */
+.quiz-loading {
+    text-align: center;
+    padding: 40px;
+    color: #4a5568;
+}
+
+.quiz-loading i {
+    font-size: 3rem;
+    color: #667eea;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

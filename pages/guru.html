@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Guru | Teman Belajar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel="stylesheet" href="../assets/css/guru.css">
+
+    <!-- QRCode JS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <link rel='stylesheet' href='../assets/css/animations.css'>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="navbar-brand">Teman Belajar (Guru)</div>
+        <div class="navbar-links">
+            <a href="../index.html" id="nav-auth-link">Login</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="guru-container">
+            <h2><i class="fas fa-qrcode"></i> Buat QR Absensi</h2>
+            <p class="guru-description">Klik tombol di bawah untuk membuat QR Code absensi hari ini.
+            </p>
+
+            <div id="qrcode" class="qr-output"></div>
+
+            <p id="qr-text" class="qr-text"></p>
+
+            <button class="btn-generate" onclick="generateAbsenQR()">
+                Generate QR Hari Ini
+            </button>
+
+            <div class="guru-actions">
+                <button onclick="window.location.href='kelas.html'" class="btn-back">
+                    <i class="fas fa-arrow-left"></i> Kembali
+                </button>
+                <button onclick="window.location.href='indikator1.html'" class="btn-start">
+                    <i class="fas fa-book-open"></i> Mulai Pembelajaran
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Konfigurasi Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBaFa2_d4almWd1wBlmPdzv9aGOa0e0m3A",
+            authDomain: "daftarhadit-dfa3a.firebaseapp.com",
+            projectId: "daftarhadit-dfa3a",
+            storageBucket: "daftarhadit-dfa3a.firebasestorage.app",
+            messagingSenderId: "438675023798",
+            appId: "1:438675023798:web:3afc376cd435f0154fc317",
+            measurementId: "G-XCNLPJSS57"
+        };
+
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const auth = firebase.auth();
+
+        // --- OPTIMASI RESPONSIVITAS NAVBAR ---
+        const isCachedLogin = localStorage.getItem('isLoggedIn') === 'true';
+        if (isCachedLogin) {
+            const authLink = document.getElementById('nav-auth-link');
+            if (authLink) {
+                authLink.textContent = "Logout";
+                authLink.href = "#";
+            }
+        }
+
+        // Cek Login
+        // Cek Login
+        auth.onAuthStateChanged(user => {
+            const authLink = document.getElementById('nav-auth-link');
+            if (authLink) {
+                if (user) {
+                    authLink.textContent = "Logout";
+                    authLink.href = "#";
+                    authLink.onclick = (e) => { e.preventDefault(); logout(); };
+                } else {
+                    authLink.textContent = "Login";
+                    authLink.href = "../index.html";
+                    authLink.onclick = null;
+                }
+            }
+
+            if (!user) {
+                window.location.href = "../index.html";
+            }
+        });
+
+        function logout() {
+            auth.signOut().then(() => {
+                localStorage.removeItem('isLoggedIn');
+                window.location.href = "home.html";
+            });
+        }
+
+        // 2. Logic Generate QR
+        function generateAbsenQR() {
+            const qrContainer = document.getElementById("qrcode");
+            qrContainer.innerHTML = ""; // Bersihkan QR sebelumnya
+
+            const today = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
+            const codeContent = `ABSEN-${today}`; // Format Kode: ABSEN-2024-12-16
+
+            new QRCode(qrContainer, {
+                text: codeContent,
+                width: 256,
+                height: 256
+            });
+
+            document.getElementById("qr-text").innerText = "Kode: " + codeContent;
+        }
+    </script>
+</body>
+
+</html>

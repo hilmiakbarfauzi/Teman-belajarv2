@@ -1,0 +1,208 @@
+/* --- DEFINISI KEYFRAMES --- */
+
+/* 1. Fade In Up (Muncul dari bawah) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. Slide In Left (Masuk dari kiri - untuk Judul) */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 3. Pop In (Muncul membesar - untuk Kartu/Icon) */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    70% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 4. Navbar Slide Down */
+@keyframes navSlideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* --- PENERAPAN ANIMASI KE ELEMEN --- */
+
+/* Navbar: Turun dari atas */
+.navbar {
+    animation: navSlideDown 0.8s ease-out forwards;
+}
+
+/* Judul Halaman & Hero Text: Masuk dari kiri */
+h1,
+h2,
+.welcome-header,
+.hero h1 {
+    opacity: 0;
+    /* Mulai invisible */
+    animation: slideInLeft 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+    /* Delay sedikit biar navbar duluan */
+}
+
+/* Paragraf & Deskripsi: Muncul dari bawah */
+p,
+.hero p,
+.image-overlay p {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+/* Kartu Info / Section: Pop In (Staggered/Bertahap semu dengan delay) */
+.info-section,
+.content-card,
+.guru-container,
+.card,
+.menu-card {
+    opacity: 0;
+    animation: popIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: 0.5s;
+}
+
+/* Gambar: Fade In halus */
+img,
+.responsive-image {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+/* Tombol: Efek Hover Keren */
+button,
+.cta-button,
+.btn-generate,
+.login-btn,
+.btn-masuk {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover,
+.cta-button:hover,
+.btn-generate:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Links di Navbar: Underline Animation */
+.navbar-links a {
+    position: relative;
+    transition: color 0.3s;
+}
+
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.3s;
+}
+
+.navbar-links a:hover::after {
+    width: 100%;
+}
+
+/* --- UPDATE KHUSUS UNTUK ITEM YANG BANYAK (Delay Bertingkat) --- */
+/* Menggunakan nth-child untuk memberi delay berbeda pada item list atau kartu berurutan */
+
+.info-sections-container .info-section:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.info-sections-container .info-section:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.info-sections-container .info-section:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.content-container .content-card:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.content-container .content-card:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.content-container .content-card:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+/* Input Fields Focus Animation */
+input:focus,
+select:focus {
+    transform: scale(1.01);
+    box-shadow: 0 0 10px rgba(43, 108, 176, 0.3);
+    border-color: #2b6cb0;
+    transition: all 0.3s ease;
+}
+
+/* --- UTILITY CLASSES FOR HTML MARKUP --- */
+.fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+.delay-4 {
+    animation-delay: 0.8s;
+}
+
+.delay-5 {
+    animation-delay: 1.0s;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indikator 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="../assets/js/firebase-settings.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/materi.css">
+    <link rel="stylesheet" href="../assets/css/diskusi.css">
+    <link rel='stylesheet' href='../assets/css/animations.css'>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <script src="../assets/js/navbar.js"></script>
+
+    <div class="materi-hero hero-indikator-2 fade-in-up">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge-materi">INDIKATOR 2</span>
+            <h1>Keamanan Akun Digital</h1>
+            <p>Panduan lengkap melindungi akun dan password dari peretasan.</p>
+        </div>
+    </div>
+
+    <div class="learning-container">
+
+        <!-- Card 1: Keamanan Akun -->
+        <article class="learning-card fade-in-up delay-1">
+            <div class="card-header">
+                <i class="fa-solid fa-key"></i>
+                <h2>Keamanan Akun & Password</h2>
+            </div>
+            <div class="card-body">
+
+                <!-- Subjudul Utama -->
+                <h3 class="mt-4">Menjaga Keamanan Akun dan Password</h3>
+
+                <p class="lead-text mt-3">Salah satu langkah paling dasar sekaligus penting dalam menjaga data pribadi
+                    adalah melindungi akun digital kita. Saat ini, hampir seluruh aktivitas digital membutuhkan akun
+                    untuk mengakses layanan, mulai dari media sosial, email, platform belajar online, marketplace,
+                    hingga aplikasi perbankan.</p>
+                <div class="info-box mb-4">
+                    Artinya, akun menyimpan banyak informasi pribadi sensitif. <strong>Jika diretas, bukan hanya data
+                        hilang, tetapi reputasi dan privasi ikut terancam.</strong>
+                </div>
+
+                <hr class="divider">
+
+                <h4 class="mb-2">1. Gunakan Password yang Kuat</h4>
+                <p class="mb-2">Hindari password mudah ditebak seperti:</p>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-xmark text-red"></i> Tanggal lahir</li>
+                    <li><i class="fa-solid fa-xmark text-red"></i> Nama hewan peliharaan</li>
+                    <li><i class="fa-solid fa-xmark text-red"></i> Nama pacar</li>
+                    <li><i class="fa-solid fa-xmark text-red"></i> Angka urut (123456)</li>
+                    <li><i class="fa-solid fa-xmark text-red"></i> Password sama untuk semua akun</li>
+                </ul>
+                <p class="mb-2">Gunakan kombinasi berikut agar kuat:</p>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-check text-green"></i> Huruf besar (A-Z)</li>
+                    <li><i class="fa-solid fa-check text-green"></i> Huruf kecil (a-z)</li>
+                    <li><i class="fa-solid fa-check text-green"></i> Angka (0-9)</li>
+                    <li><i class="fa-solid fa-check text-green"></i> Simbol (!@#$)</li>
+                </ul>
+                <p class="quote-text small">"Catatan: Minimal 8 karakter, semakin panjang semakin kuat."</p>
+
+                <h4 class="mt-4 mb-2">2. Aktifkan Verifikasi Dua Langkah (2FA)</h4>
+                <p class="mb-3"><strong>Two-Factor Authentication</strong> menambah lapisan keamanan ekstra. Meski
+                    password bocor, login tidak bisa dilakukan tanpa kode verifikasi.</p>
+                <p class="mb-2">Jenis kode verifikasi:</p>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-comment-sms"></i> SMS</li>
+                    <li><i class="fa-solid fa-envelope"></i> Email</li>
+                    <li><i class="fa-solid fa-mobile-screen-button"></i> Aplikasi autentikasi (Google Authenticator,
+                        Authy)</li>
+                </ul>
+
+                <h4 class="mt-4 mb-2">3. Jangan Pernah Membagikan Password atau OTP</h4>
+                <div class="info-box warning-box">
+                    <ul class="check-list mb-0">
+                        <li><i class="fa-solid fa-triangle-exclamation text-red"></i> <strong>Jangan</strong> berikan
+                            password ke siapa pun</li>
+                        <li><i class="fa-solid fa-triangle-exclamation text-red"></i> <strong>Jangan</strong> kirim OTP
+                        </li>
+                        <li><i class="fa-solid fa-triangle-exclamation text-red"></i> <strong>Waspadai</strong> pihak
+                            mengatasnamakan instansi resmi</li>
+                    </ul>
+                </div>
+
+                <h4 class="mt-4 mb-2">4. Hindari Jebakan Rekayasa Sosial (Social Engineering)</h4>
+                <p class="mb-2">Waspadai teknik penipuan seperti:</p>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-user-injured"></i> Pesan palsu (Fake messages)</li>
+                    <li><i class="fa-solid fa-link"></i> Link phishing</li>
+                    <li><i class="fa-solid fa-desktop"></i> Situs login palsu</li>
+                </ul>
+                <p class="quote-text small">"Cek domain dan pastikan menggunakan HTTPS dan ikon gembok."</p>
+
+                <h4 class="mt-4 mb-2">5. Logout dari Perangkat Umum</h4>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-right-from-bracket text-green"></i> Logout setelah selesai</li>
+                    <li><i class="fa-solid fa-trash-can text-green"></i> Hapus riwayat dan cookies</li>
+                    <li><i class="fa-solid fa-key text-red"></i> Jangan simpan password otomatis</li>
+                </ul>
+
+                <h4 class="mt-4 mb-2">6. Hindari Login Menggunakan Wi-Fi Publik</h4>
+                <p>Tidak aman karena rentan penyadapan. Jika terpaksa, gunakan <strong>VPN</strong>.</p>
+
+                <h4 class="mt-4 mb-2">7. Perbarui Password Secara Berkala</h4>
+                <p>Buat jadwal mengganti password setiap beberapa bulan. Jika kesulitan mengingat, gunakan
+                    <strong>Password Manager</strong> terpercaya.
+                </p>
+
+                <div class="info-box success-box mt-4">
+                    <h3>Kesimpulan</h3>
+                    <p>“Keamanan akun digital dimulai dari kebiasaan kita sehari-hari. Langkah kecil seperti mengganti
+                        password, mengaktifkan 2FA, dan berhati-hati ketika login dapat mencegah penyalahgunaan data
+                        pribadi.”</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Video Container for Indikator 2 (Static) -->
+        <article class="learning-card fade-in-up delay-2">
+            <div class="card-header">
+                <i class="fa-solid fa-play-circle"></i>
+                <h2>Video Pembelajaran</h2>
+            </div>
+            <div class="card-body">
+                <p class="mb-4">Simak video berikut untuk memahami materi lebih dalam.</p>
+
+                <div class="h5p-wrapper">
+                    <iframe src="https://app.lumi.education/api/v1/run/jbL3xT/embed" width="100%" height="720"
+                        frameborder="0" allowfullscreen="allowfullscreen"
+                        allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+                    <script src="https://app.Lumi.education/api/v1/h5p/core/js/h5p-resizer.js" charset="UTF-8"></script>
+                </div>
+            </div>
+        </article>
+
+        </article>
+
+        <!-- Diskusi Section (Injected by JS) -->
+        <div id="diskusi-wrapper" class="fade-in-up delay-3"></div>
+        <script src="../assets/js/diskusi.js"></script>
+
+        <!-- Completion Section -->
+        <div class="completion-section fade-in-up delay-3">
+            <div class="completion-box">
+                <i class="fa-solid fa-circle-check completion-icon"></i>
+                <div>
+                    <h3>Materi Selesai!</h3>
+                    <p>Anda kini tahu cara melindungi akun digital. Siap uji pengetahuan Anda?</p>
+                </div>
+                <a href="kuis-indikator2.html" class="btn-quiz">
+                    <span>Mulai Kuis 2</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

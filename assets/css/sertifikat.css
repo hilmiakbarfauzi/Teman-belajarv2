@@ -1,0 +1,278 @@
+/* --- Sertifikat Page Styles --- */
+
+.page-container {
+    padding: 20px;
+    padding-top: 80px;
+    /* Space for Fixed Navbar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 50px;
+    z-index: 1;
+    /* Low z-index context */
+}
+
+/* Desain Sertifikat (Fixed Pixel Width for PDF Generation Consistency) */
+.sertifikat-wrapper {
+    width: 1123px;
+    /* Standard A4 Landscape at 96 DPI approx, or specifically set for jsPDF */
+    height: 794px;
+    background-color: #fff;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform-origin: top center;
+    margin-bottom: 20px;
+    /* Transformation handled by JS for responsive view */
+    z-index: 1;
+    /* Explicitly below navbar */
+}
+
+.border-pattern {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 2px solid #D4AF37;
+    padding: 5px;
+}
+
+.inner-border {
+    border: 10px solid #2c3e50;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 40%, rgba(245, 245, 245, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Prevent overflow */
+    padding-bottom: 20px;
+}
+
+.corner {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border: 4px solid #D4AF37;
+    z-index: 2;
+}
+
+.tl {
+    top: 20px;
+    left: 20px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.tr {
+    top: 20px;
+    right: 20px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.bl {
+    bottom: 20px;
+    left: 20px;
+    border-right: none;
+    border-top: none;
+}
+
+.br {
+    bottom: 20px;
+    right: 20px;
+    border-left: none;
+    border-top: none;
+}
+
+.header-logo {
+    font-size: 40px;
+    /* Reduced from 50px */
+    color: #D4AF37;
+    margin-bottom: 5px;
+    /* Reduced from 10px */
+}
+
+.cert-title {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    /* Reduced from 48px */
+    color: #2c3e50;
+    letter-spacing: 4px;
+    margin: 5px 0;
+    /* Reduced from 10px */
+    text-transform: uppercase;
+    border-bottom: 2px solid #D4AF37;
+    padding-bottom: 5px;
+    /* Reduced from 10px */
+    display: inline-block;
+}
+
+.cert-subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    /* Reduced from 18px */
+    color: #718096;
+    margin-top: 5px;
+    /* Reduced from 10px */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.recipient-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 64px;
+    /* Reduced from 82px */
+    color: #D4AF37;
+    margin: 10px 0;
+    /* Reduced from 20px */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cert-body {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    /* Reduced from 20px */
+    color: #4a5568;
+    max-width: 80%;
+    line-height: 1.5;
+    /* Reduced from 1.6 */
+    margin-bottom: 15px;
+    /* Reduced from 20px */
+    text-align: center;
+}
+
+.cert-details {
+    display: flex;
+    gap: 30px;
+    /* Reduced from 40px */
+    margin-bottom: 15px;
+    /* Reduced from 20px */
+    font-size: 16px;
+    /* Reduced from 18px */
+    color: #2d3748;
+    background: #edf2f7;
+    padding: 8px 25px;
+    /* Reduced from 10px 30px */
+    border-radius: 50px;
+    border: 1px solid #cbd5e0;
+}
+
+.cert-attribution {
+    margin-bottom: 10px;
+    /* Reduced from 20px */
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.cert-footer {
+    width: 100%;
+    padding: 0 60px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+    font-family: 'Cinzel', serif;
+}
+
+.signature-block {
+    text-align: center;
+    width: 350px;
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+}
+
+.signature-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2d3748;
+    border-top: 2px solid #2d3748;
+    padding-top: 10px;
+    width: 100%;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.signature-img {
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    color: #2b6cb0;
+    margin-bottom: 2px;
+    white-space: nowrap;
+}
+
+.btn-download {
+    background: linear-gradient(90deg, #D4AF37 0%, #b8860b 100%);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    /* Ensure z-index works */
+    z-index: 10;
+    /* Stack above certificate wrapper */
+}
+
+/* Utils */
+#sertifikat-target {
+    display: none;
+}
+
+.fade-in-content {
+    display: block !important;
+    animation: textFadeIn 1s forwards;
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.text-gold {
+    color: #D4AF37;
+}
+
+.text-blue {
+    color: #2b6cb0;
+}
+
+.text-gray {
+    color: #718096;
+}
+
+@media (max-width: 600px) {
+    .btn-download {
+        width: 90%;
+        max-width: 300px;
+        justify-content: center;
+        margin-top: 40px;
+        /* Ensure clearance from certificate */
+        z-index: 100;
+        /* Extra safety for mobile */
+    }
+}

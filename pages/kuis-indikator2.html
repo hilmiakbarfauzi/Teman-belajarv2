@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Indikator 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel="stylesheet" href="../assets/css/quiz.css">
+    <link rel='stylesheet' href='../assets/css/animations.css'>
+</head>
+
+<body>
+
+    <script src="../assets/js/navbar.js"></script>
+
+    <section class="hero">
+        <h1>Kuis Indikator 2: Keamanan Akun Digital</h1>
+        <p>Jawab 5 soal berikut. Raih nilai 4 ke atas untuk melanjutkan ke Indikator 3!</p>
+    </section>
+
+    <div class="quiz-container">
+        <form id="quiz-form">
+
+            <div class="soal-item">
+                <p><span class="question-number">1</span><strong>Istilah umum untuk perangkat lunak berbahaya yang
+                        merusak sistem tanpa izin
+                        adalah...</strong></p>
+                <label><input type="radio" name="soal1" value="A"> Hardware</label>
+                <label><input type="radio" name="soal1" value="B"> Malware</label>
+                <label><input type="radio" name="soal1" value="C"> Utility</label>
+            </div>
+
+            <div class="soal-item">
+                <p><span class="question-number">2</span><strong>Malware yang mengenkripsi data korban dan meminta
+                        tebusan uang disebut...</strong></p>
+                <label><input type="radio" name="soal2" value="A"> Ransomware</label>
+                <label><input type="radio" name="soal2" value="B"> Spyware</label>
+                <label><input type="radio" name="soal2" value="C"> Virus</label>
+            </div>
+
+            <div class="soal-item">
+                <p><span class="question-number">3</span><strong>Salah satu cara paling efektif untuk mencegah infeksi
+                        malware adalah...</strong></p>
+                <label><input type="radio" name="soal3" value="A"> Membuka semua tautan dari email asing</label>
+                <label><input type="radio" name="soal3" value="B"> Menonaktifkan firewall</label>
+                <label><input type="radio" name="soal3" value="C"> Selalu memperbarui sistem operasi dan perangkat
+                    lunak</label>
+            </div>
+
+            <div class="soal-item">
+                <p><span class="question-number">4</span><strong>Program jahat yang berpura-pura menjadi aplikasi yang
+                        sah (seperti game gratis)
+                        disebut...</strong></p>
+                <label><input type="radio" name="soal4" value="A"> Worm</label>
+                <label><input type="radio" name="soal4" value="B"> Trojan Horse</label>
+                <label><input type="radio" name="soal4" value="C"> Spyware</label>
+            </div>
+
+            <div class="soal-item">
+                <p><span class="question-number">5</span><strong>Apa yang dilakukan oleh Spyware?</strong></p>
+                <label><input type="radio" name="soal5" value="A"> Mengunci layar komputer</label>
+                <label><input type="radio" name="soal5" value="B"> Melakukan backup data otomatis</label>
+                <label><input type="radio" name="soal5" value="C"> Memantau dan mencuri informasi aktivitas pengguna
+                    secara diam-diam</label>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <span>Cek Jawaban dan Lanjut</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </form>
+
+        <div id="hasil-kuis"></div>
+    </div>
+
+    <script src="../assets/js/kuis2.js"></script>
+
+
+
+</body>
+
+</html>

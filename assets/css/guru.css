@@ -1,0 +1,119 @@
+/* Guru Dashboard Styles */
+.guru-container {
+    max-width: 600px;
+    margin: 30px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    width: 90%;
+    /* Responsive width */
+}
+
+.guru-container h2 {
+    color: var(--secondary-color, #2d3748);
+    margin-bottom: 15px;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.guru-description {
+    color: var(--text-light, #718096);
+    margin-bottom: 30px;
+}
+
+/* QR Code Output Area */
+.qr-output {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    background: white;
+    padding: 20px;
+    border: 2px dashed #e2e8f0;
+    border-radius: 10px;
+    min-height: 256px;
+    /* Placeholder height */
+    align-items: center;
+}
+
+.qr-text {
+    font-weight: bold;
+    margin-top: 15px;
+    color: var(--secondary-color, #333);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.btn-generate {
+    background-color: var(--accent-color, #3182ce);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.2s, transform 0.2s;
+    font-weight: 600;
+}
+
+.btn-generate:hover {
+    background-color: #2c5282;
+    transform: translateY(-2px);
+}
+
+/* Action Buttons */
+.guru-actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Allow wrapping on mobile */
+}
+
+.btn-back,
+.btn-start {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    flex: 1;
+    /* Equal width on flex wrap */
+    min-width: 150px;
+    transition: transform 0.2s;
+}
+
+.btn-back {
+    background: var(--text-light, #718096);
+    color: white;
+}
+
+.btn-start {
+    background: var(--primary-color, #38a169);
+    color: white;
+}
+
+.btn-back:hover,
+.btn-start:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .guru-container {
+        padding: 20px;
+    }
+
+    .guru-actions {
+        flex-direction: column;
+    }
+
+    .btn-back,
+    .btn-start {
+        width: 100%;
+    }
+}

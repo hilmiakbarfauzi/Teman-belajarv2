@@ -1,0 +1,117 @@
+/* --- Menu Card Container (Menu Pembelajaran) --- */
+.menu-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto 50px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid #38a169;
+    /* Border utama: Hijau */
+}
+
+/* Menyesuaikan lebar untuk kartu */
+.wide-card {
+    width: 500px;
+    max-width: 90%;
+    cursor: default;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card .icon {
+    font-size: 60px;
+    margin-bottom: 25px;
+}
+
+.card .icon i {
+    color: #38a169;
+    /* Warna ikon standar */
+}
+
+.card h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.card .description {
+    font-size: 16px;
+    color: #555;
+    margin: 15px 0 30px;
+    line-height: 1.6;
+}
+
+/* Gaya untuk Tombol Lanjut (Default) */
+.cta-button {
+    display: inline-block;
+    background-color: #38a169;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #2e8b57;
+}
+
+
+/* --- Gaya Khusus untuk Kartu Absen (BARU) --- */
+
+/* Border dan ikon diubah menjadi oranye untuk pembeda */
+.absen-card {
+    border-top: 5px solid #ffa500;
+    /* Warna penekanan: Oranye */
+}
+
+.absen-card .icon i {
+    color: #ffa500;
+    /* Warna ikon menyesuaikan border */
+}
+
+/* Tombol Absen diubah menjadi oranye dan sedikit lebih besar */
+.absen-button {
+    background-color: #ffa500;
+    padding: 15px 35px;
+}
+
+.absen-button:hover {
+    background-color: #cc8400;
+}
+
+
+/* --- Media Queries (Responsif) --- */
+
+@media (min-width: 900px) {
+    .menu-container {
+        justify-content: space-evenly;
+    }
+
+    .wide-card {
+        width: 45%;
+        /* Di layar besar, kartu Absen dan Indikator akan berdampingan */
+    }
+}
+
+@media (max-width: 768px) {
+    .wide-card {
+        width: 100%;
+        /* Kartu menjadi penuh di layar ponsel */
+    }
+}

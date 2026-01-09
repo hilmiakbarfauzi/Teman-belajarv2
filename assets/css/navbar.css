@@ -1,0 +1,144 @@
+/* ================================================= */
+/* NAVBAR STYLES - Consistent across all pages */
+/* ================================================= */
+
+.navbar {
+    background-color: var(--primary-color);
+    color: var(--bg-surface);
+    padding: 0 var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-md);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999 !important;
+    height: var(--navbar-height);
+    transition: var(--transition);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    /* 24px */
+    letter-spacing: -0.02em;
+}
+
+.navbar-links {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.navbar-links a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    padding: var(--spacing-xs) 0;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active-link {
+    /* Assuming JS adds this class */
+    color: white;
+    opacity: 1;
+}
+
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.navbar-links a:hover::after {
+    width: 100%;
+}
+
+/* Hamburger Menu (Hidden on Desktop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    padding: 5px;
+    z-index: 100000 !important;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* ================================================= */
+/* RESPONSIVE NAVBAR for Mobile */
+/* ================================================= */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 var(--spacing-md);
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Change hamburger to X when open */
+    .hamburger.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    .navbar-links {
+        position: fixed;
+        /* Better than absolute for full screen overlays */
+        top: var(--navbar-height);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--navbar-height));
+        background-color: var(--primary-color);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0;
+        transform: translateX(100%);
+        /* Slide in effect */
+        transition: transform 0.3s ease-in-out;
+        box-shadow: none;
+        overflow-y: auto;
+    }
+
+    .navbar-links.active {
+        transform: translateX(0);
+    }
+
+    .navbar-links a {
+        width: 100%;
+        text-align: center;
+        padding: var(--spacing-md) 0;
+        font-size: 1.25rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-links a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}

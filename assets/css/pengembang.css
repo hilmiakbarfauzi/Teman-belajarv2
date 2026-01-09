@@ -1,0 +1,445 @@
+/* Import Global variables if needed, but we redefine or use vars here */
+/* We assume global.css is loaded, so we can use var(--primary-color) etc */
+
+body {
+    background-color: #ffffff;
+    /* Fallback or var(--primary-color) match */
+    color: #fff;
+    font-family: var(--font-main, system-ui, sans-serif);
+    margin: 0;
+    padding: 0;
+    /* Allow scrolling on overflow */
+    overflow-x: hidden;
+    height: 100vh;
+    display: flex;
+    /* Centering relative to viewport */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure Navbar doesn't overlap weirdly - Navbar is fixed or top? 
+   In project, navbar is usually fixed or static. 
+   If fixed, we need padding-top. 
+   slider.html loads global.css which sets body { padding-top: var(--navbar-height); }
+   So we just need to ensure height calculation subtracts navbar height.
+*/
+
+.container {
+    position: relative;
+    /* Changed from absolute to relative for easier mobile flow */
+    width: 90vw;
+    height: 70vh;
+    /* Relative to viewport height */
+    max-width: 1200px;
+    max-height: 700px;
+    /* Remove top/left/transform centering in favor of flex body or margin auto */
+    margin: 0 auto;
+
+    background-image: radial-gradient(#059669, #022c22);
+    /* Darker emerald gradient */
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Directional Buttons */
+.directional {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.directional button {
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.directional button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Slide Item */
+#slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#slide .item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    /* Prevent spill */
+}
+
+/* Image Styling */
+#slide .item .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(3);
+    transition: 1.5s ease-in-out;
+}
+
+#slide .item .image img {
+    width: auto;
+    height: 85%;
+    /* Adjusted so it fits better */
+    max-width: 90%;
+    object-fit: contain;
+    transition: 0.5s;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+/* Item Active State (Managed by JS appending/prepending, logic relies on nth-child) 
+   JS logic: items[0] is one being shown? 
+   Wait, script.js appends first item to end (Next) or prepends last to start (Prev).
+   The CSS logic:
+   #slide .item:nth-child(1) -> Previous/Entering?
+   #slide .item:nth-child(2) -> Active?
+   Let's check original CSS.
+   Original:
+   nth-child(1) .image: opacity 0, transform ...
+   nth-child(2) .image: opacity 1
+   So the 2nd item in DOM is the Active one.
+*/
+
+#slide .item:nth-child(1) .image {
+    opacity: 0;
+    transform: scale(0) translate(-100px);
+}
+
+#slide .item:nth-child(2) .image {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#slide .item:nth-child(2) {
+    z-index: 3;
+}
+
+/* Content Text */
+.content .left,
+.content .right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    /* Hidden by default */
+    z-index: 5;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.content .left {
+    left: 60px;
+    text-align: left;
+    max-width: 400px;
+}
+
+.content .right {
+    right: 60px;
+    text-align: left;
+    max-width: 300px;
+}
+
+.content .left h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    color: #fff;
+}
+
+.content .left .des {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* List Styling */
+.content .right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content .right li {
+    position: relative;
+    margin-bottom: 25px;
+    padding-left: 20px;
+}
+
+.content .right li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    /* Align with first line */
+    width: 10px;
+    height: 10px;
+    background-color: #34d399;
+    /* Emerald 400 */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #34d399;
+}
+
+.content .right li p:first-child {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #a7f3d0;
+    /* Emerald 200 */
+    margin-bottom: 4px;
+}
+
+.content .right li p:last-child {
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+/* Animations Logic */
+#slide .item:nth-child(1) .left,
+#slide .item:nth-child(1) .right,
+#slide .item:nth-child(2) .left,
+#slide .item:nth-child(2) .right {
+    display: block;
+}
+
+#slide .item:nth-child(1) .left,
+#slide .item:nth-child(1) .right {
+    animation: contentOut 0.8s ease-in-out forwards;
+}
+
+#slide .item:nth-child(2) .left,
+#slide .item:nth-child(2) .right {
+    animation: contentIn 0.8s ease-in-out forwards;
+}
+
+@keyframes contentOut {
+    from {
+        opacity: 1;
+        transform: translate(0, -50%);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(0, -150%);
+        filter: blur(20px);
+    }
+}
+
+@keyframes contentIn {
+    from {
+        opacity: 0;
+        transform: translate(0, 50%);
+        filter: blur(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, -50%);
+        filter: blur(0);
+    }
+}
+
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Laptop & Tablet (Small Screens) */
+@media (max-width: 1024px) {
+    .container {
+        width: 95vw;
+        height: 70vh;
+    }
+
+    .content .left h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+
+    /* Adjust Container */
+    .container {
+        width: 100vw;
+        height: calc(100vh - var(--navbar-height, 70px) - 20px);
+        border-radius: 0;
+        margin-top: 10px;
+        box-shadow: none;
+    }
+
+    /* Content Wrapper - Becomes Flex Container */
+    .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        z-index: 20;
+        /* Ensure above image */
+    }
+
+    /* Reset Position for Children */
+    .content .left,
+    .content .right {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        transform: none !important;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        display: block !important;
+        margin: 10px 0;
+        opacity: 0;
+        /* Initial state for animation */
+    }
+
+    /* Image Styling on Mobile */
+    #slide .item .image {
+        align-items: flex-start;
+        /* Move image to top area */
+        padding-top: 40px;
+    }
+
+    #slide .item .image img {
+        height: 35%;
+        opacity: 0.4;
+        /* Fade out to be subtle background */
+        filter: blur(2px) drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+        transition: 0.5s;
+    }
+
+    /* Left Content (Name/Title) */
+    .content .left {
+        order: 1;
+        /* First */
+        margin-bottom: 20px;
+        animation: mobileFadeInUp 0.8s ease forwards 0.3s;
+    }
+
+    .content .left h1 {
+        font-size: 2.2rem;
+        margin-bottom: 5px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    .content .left .des {
+        font-size: 1rem;
+        color: #e2e8f0;
+        background: rgba(0, 0, 0, 0.2);
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 20px;
+    }
+
+    /* Right Content (Details/Quotes) */
+    .content .right {
+        order: 2;
+        /* Second */
+        animation: mobileFadeInUp 0.8s ease forwards 0.5s;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        border-radius: 15px;
+        backdrop-filter: blur(5px);
+    }
+
+    .content .right ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .content .right li {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content .right li::before {
+        display: none;
+    }
+
+    .content .right li p:first-child {
+        font-size: 0.9rem;
+        color: #6ee7b7;
+        /* Emerald 300 */
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 2px;
+    }
+
+    .content .right li p:last-child {
+        font-size: 1rem;
+        font-style: italic;
+    }
+
+    /* Buttons */
+    .directional {
+        bottom: 30px;
+    }
+
+    .directional button {
+        width: 45px;
+        height: 45px;
+        background-color: rgba(5, 150, 105, 0.6);
+        /* Semi-transparent Primary */
+    }
+
+    /* Disable Desktop Animations for Clean Mobile State */
+    #slide .item:nth-child(1) .left,
+    #slide .item:nth-child(1) .right,
+    #slide .item:nth-child(2) .left,
+    #slide .item:nth-child(2) .right {
+        animation: none;
+    }
+}
+
+/* Mobile Animation Helper */
+@keyframes mobileFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

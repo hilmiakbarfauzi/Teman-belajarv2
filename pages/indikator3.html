@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indikator 3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="../assets/js/firebase-settings.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/materi.css">
+    <link rel="stylesheet" href="../assets/css/diskusi.css">
+    <link rel='stylesheet' href='../assets/css/animations.css'>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <script src="../assets/js/navbar.js"></script>
+
+    <div class="materi-hero hero-indikator-3 fade-in-up">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge-materi">INDIKATOR 3</span>
+            <h1>Bahaya Kebocoran Data dan Cara Menghindarinya</h1>
+            <p>Pahami bahaya kebocoran data dan cara melindungi diri di dunia digital.</p>
+        </div>
+    </div>
+
+    <div class="learning-container">
+
+        <!-- Card 1: Keamanan Data & Kebocoran -->
+        <article class="learning-card fade-in-up delay-1">
+            <div class="card-header">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h2>Keamanan Data & Kebocoran</h2>
+            </div>
+            <div class="card-body">
+                <!-- Intro Keamanan Jaringan -->
+                <h3>Apa Itu Keamanan Jaringan?</h3>
+                <p class="lead-text"><strong>Keamanan Jaringan</strong> adalah praktik melindungi infrastruktur jaringan
+                    dari akses ilegal ataupun penyalahgunaan. Ini mencakup penggunaan teknologi seperti Firewall, VPN,
+                    dan Enkripsi.</p>
+
+                <hr class="divider">
+
+                <!-- Subjudul Utama -->
+                <h3>Bahaya Kebocoran Data dan Cara Menghindarinya</h3>
+
+                <p class="lead-text mt-3">Kebocoran data merupakan salah satu ancaman terbesar dalam dunia digital.
+                    Banyak pengguna merasa datanya tidak penting, padahal informasi sekecil apa pun dapat dimanfaatkan
+                    untuk tindakan merugikan.</p>
+
+                <hr class="divider">
+
+                <!-- Bagian 1: Apa Itu Kebocoran Data? -->
+                <h4 class="mb-2">Bagian 1: Apa Itu Kebocoran Data?</h4>
+                <p class="mb-3"><strong>Definisi:</strong> Kebocoran data terjadi ketika informasi pribadi tersimpan
+                    atau diakses oleh pihak yang tidak berwenang.</p>
+
+                <p class="mb-2">Data yang termasuk rentan bocor:</p>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-user"></i> Nama lengkap</li>
+                    <li><i class="fa-solid fa-envelope"></i> Email</li>
+                    <li><i class="fa-solid fa-phone"></i> Nomor telepon</li>
+                    <li><i class="fa-solid fa-key"></i> Password</li>
+                    <li><i class="fa-solid fa-credit-card"></i> Data keuangan</li>
+                    <li><i class="fa-solid fa-id-card"></i> Informasi identitas</li>
+                </ul>
+
+                <p class="quote-text">"Kebocoran bisa terjadi karena serangan siber, sistem lemah, atau kelalaian
+                    pengguna."</p>
+
+                <!-- Bagian 2: Penyebab Kebocoran -->
+                <h4 class="mt-4 mb-2">Bagian 2: Contoh Penyebab Kebocoran Data</h4>
+                <p class="mb-2">Penyebab umum kebocoran meliputi:</p>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-triangle-exclamation text-red"></i> Mengunduh aplikasi tidak resmi</li>
+                    <li><i class="fa-solid fa-wifi text-red"></i> Menggunakan Wi-Fi publik tanpa perlindungan</li>
+                    <li><i class="fa-solid fa-link text-red"></i> Login melalui situs palsu (phishing)</li>
+                    <li><i class="fa-solid fa-mouse-pointer text-red"></i> Mengklik tautan mencurigakan</li>
+                    <li><i class="fa-solid fa-file-lines text-red"></i> Mengisi formulir online sembarangan</li>
+                </ul>
+
+                <div class="info-box warning-box">
+                    <strong>Contoh:</strong> Aplikasi malware dapat memantau aktivitas dan mencuri data tanpa disadari
+                    pengguna.
+                </div>
+
+                <!-- Bagian 3: Dampak Kebocoran -->
+                <h4 class="mt-4 mb-2">Bagian 3: Dampak Kebocoran Data</h4>
+                <p class="mb-2">Dampak yang dapat terjadi:</p>
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-comment-slash text-red"></i> Spam dan pesan tidak diinginkan</li>
+                    <li><i class="fa-solid fa-user-lock text-red"></i> Peretasan akun media sosial</li>
+                    <li><i class="fa-solid fa-user-secret text-red"></i> Penyalahgunaan identitas</li>
+                    <li><i class="fa-solid fa-money-bill-wave text-red"></i> Penipuan finansial</li>
+                    <li><i class="fa-solid fa-database text-red"></i> Penjualan data di pasar gelap digital</li>
+                </ul>
+
+                <p class="mb-3"><strong>Akibatnya, privasi dan keamanan digital pengguna sangat rentan.</strong></p>
+
+                <!-- Bagian 4: Cara Menghindari -->
+                <h4 class="mt-4 mb-2">Bagian 4: Cara Menghindari Kebocoran Data</h4>
+
+                <div class="numbered-list">
+                    <div class="numbered-item">
+                        <div class="number-badge">1</div>
+                        <div class="content">
+                            <h5>Unduh aplikasi dari sumber resmi</h5>
+                            <ul class="check-list">
+                                <li><i class="fa-solid fa-check text-green"></i> Gunakan Play Store / App Store</li>
+                                <li><i class="fa-solid fa-xmark text-red"></i> Hindari file APK dari situs tidak dikenal
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="numbered-item">
+                        <div class="number-badge">2</div>
+                        <div class="content">
+                            <h5>Jaga kerahasiaan data sensitif</h5>
+                            <ul class="check-list">
+                                <li><i class="fa-solid fa-lock text-green"></i> Jangan bagikan nomor identitas dan
+                                    password</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="numbered-item">
+                        <div class="number-badge">3</div>
+                        <div class="content">
+                            <h5>Perbarui sistem dan aplikasi</h5>
+                            <ul class="check-list">
+                                <li><i class="fa-solid fa-arrows-rotate text-green"></i> Update memperbaiki celah
+                                    keamanan</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="numbered-item">
+                        <div class="number-badge">4</div>
+                        <div class="content">
+                            <h5>Waspadai izin aplikasi</h5>
+                            <ul class="check-list">
+                                <li><i class="fa-solid fa-eye text-red"></i> Curigai jika akses tidak sesuai fungsi</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="numbered-item">
+                        <div class="number-badge">5</div>
+                        <div class="content">
+                            <h5>Gunakan VPN saat mengakses Wi-Fi publik</h5>
+                        </div>
+                    </div>
+
+                    <div class="numbered-item">
+                        <div class="number-badge">6</div>
+                        <div class="content">
+                            <h5>Perhatikan URL situs sebelum login</h5>
+                            <ul class="check-list">
+                                <li><i class="fa-solid fa-lock text-green"></i> Pastikan HTTPS dan ikon gembok</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box success-box mt-4">
+                    <h3>Kesimpulan</h3>
+                    <p>"Tingkat risiko kebocoran data meningkat seiring tingginya penggunaan teknologi digital.
+                        Kesadaran pengguna sangat berperan dalam mencegahnya. Dengan menjaga kebiasaan digital yang
+                        aman, kita melindungi data pribadi, privasi, dan keselamatan digital."</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Video Container for Indikator 3 (Static) -->
+        <article class="learning-card fade-in-up delay-2">
+            <div class="card-header">
+                <i class="fa-solid fa-play-circle"></i>
+                <h2>Video Pembelajaran</h2>
+            </div>
+            <div class="card-body">
+                <p class="mb-4">Simak video berikut untuk memahami materi lebih dalam.</p>
+
+                <div class="h5p-wrapper">
+                    <iframe src="https://app.lumi.education/api/v1/run/Z0jyRe/embed" width="100%" height="720"
+                        frameborder="0" allowfullscreen="allowfullscreen"
+                        allow="geolocation *; microphone *; camera *; midi *; encrypted-media *"></iframe>
+                    <script src="https://app.Lumi.education/api/v1/h5p/core/js/h5p-resizer.js" charset="UTF-8"></script>
+                </div>
+            </div>
+        </article>
+
+        </article>
+
+        <!-- Diskusi Section (Injected by JS) -->
+        <div id="diskusi-wrapper" class="fade-in-up delay-3"></div>
+        <script src="../assets/js/diskusi.js"></script>
+
+        <!-- Completion Section -->
+        <div class="completion-section fade-in-up delay-3">
+            <div class="completion-box">
+                <i class="fa-solid fa-circle-check completion-icon"></i>
+                <div>
+                    <h3>Anda Hebat!</h3>
+                    <p>Semua materi telah selesai. Mari uji pemahaman akhir Anda tentang keamanan data.</p>
+                </div>
+                <a href="kuis-indikator3.html" class="btn-quiz">
+                    <span>Mulai Kuis 3</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
