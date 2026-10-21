@@ -32,26 +32,41 @@
             style="display:none; text-align: center; font-size: 14px; color: green; margin-bottom: 20px;">✅ Status:
             Sudah Absen Hari Ini</p>
 
-        <p class="welcome-text">Pilih semester dan pertemuan untuk memulai pembelajaran Anda. Mari kita belajar bersama!
+        <p class="welcome-text">Pilih pertemuan untuk memulai pembelajaran Keamanan Jaringan. Mari kita belajar bersama!
         </p>
 
-        <div class="class-layout">
-            <div class="semester-menu">
-                <h3>Pilih Semester</h3>
-                <button class="semester-btn" id="ganjil-btn">Semester Ganjil</button>
-                <button class="semester-btn" id="genap-btn">Semester Genap</button>
-            </div>
+        <div class="class-layout" style="display: block;">
+            <div class="pertemuan-section show" id="pertemuan-container" style="width: 100%; max-width: 900px; margin: 0 auto; box-shadow: 0 4px 12px rgba(0,0,0,0.08); background: white; padding: 30px; border-radius: 12px;">
+                <h3 style="margin-bottom: 20px; color: #198754; font-size: 20px;"><i class="fa-solid fa-book-open mr-10"></i> Modul Pembelajaran (4 Pertemuan)</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+                    <!-- Pertemuan 1 -->
+                    <div onclick="handlePertemuan('materi-p1.html')" style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 10px; padding: 20px; cursor: pointer; transition: 0.3s; text-align: center;" onmouseover="this.style.borderColor='#198754'; this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='#dee2e6'; this.style.transform='translateY(0)';">
+                        <i class="fa-solid fa-fire text-green" style="font-size: 28px; margin-bottom: 10px;"></i>
+                        <h4 style="margin-bottom: 8px; color: #333;">Pertemuan 1</h4>
+                        <p style="font-size: 13px; color: #666;">Konsep Keamanan Jaringan, Firewall, & UFW Linux</p>
+                    </div>
 
-            <div class="pertemuan-section" id="pertemuan-container">
-                <!-- Content will be injected by JS -->
-            </div>
+                    <!-- Pertemuan 2 -->
+                    <div onclick="handlePertemuan('materi-p2.html')" style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 10px; padding: 20px; cursor: pointer; transition: 0.3s; text-align: center;" onmouseover="this.style.borderColor='#198754'; this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='#dee2e6'; this.style.transform='translateY(0)';">
+                        <i class="fa-solid fa-shield-halved text-green" style="font-size: 28px; margin-bottom: 10px;"></i>
+                        <h4 style="margin-bottom: 8px; color: #333;">Pertemuan 2</h4>
+                        <p style="font-size: 13px; color: #666;">Deteksi Ancaman (IDS/IPS, EDR, & Arsitektur DMZ)</p>
+                    </div>
 
-            <!-- Default Placeholder -->
-            <div id="instruction-placeholder" class="pertemuan-section show"
-                style="box-shadow: none; background: transparent; border: none; min-height: auto;">
-                <div class="select-instruction">
-                    <i class="fa-solid fa-book-open"></i>
-                    <p>Silakan pilih semester di sebelah kiri untuk melihat materi.</p>
+                    <!-- Pertemuan 3 -->
+                    <div onclick="handlePertemuan('materi-p3.html')" style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 10px; padding: 20px; cursor: pointer; transition: 0.3s; text-align: center;" onmouseover="this.style.borderColor='#198754'; this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='#dee2e6'; this.style.transform='translateY(0)';">
+                        <i class="fa-solid fa-lock text-green" style="font-size: 28px; margin-bottom: 10px;"></i>
+                        <h4 style="margin-bottom: 8px; color: #333;">Pertemuan 3</h4>
+                        <p style="font-size: 13px; color: #666;">Komunikasi Aman (VPN, SSL/TLS, & CA)</p>
+                    </div>
+
+                    <!-- Pertemuan 4 -->
+                    <div onclick="handlePertemuan('materi-p4.html')" style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 10px; padding: 20px; cursor: pointer; transition: 0.3s; text-align: center;" onmouseover="this.style.borderColor='#198754'; this.style.transform='translateY(-3px)';" onmouseout="this.style.borderColor='#dee2e6'; this.style.transform='translateY(0)';">
+                        <i class="fa-solid fa-user-shield text-green" style="font-size: 28px; margin-bottom: 10px;"></i>
+                        <h4 style="margin-bottom: 8px; color: #333;">Pertemuan 4</h4>
+                        <p style="font-size: 13px; color: #666;">Hardening Server, Kriptografi, & Autentikasi MFA</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -70,10 +85,8 @@
         </div>
         <p id="lock-message" class="lock-message">
             <i class="fa-solid fa-lock"></i> Selesaikan <a href="quiz-evaluasi.html" class="text-red-underline">Quiz
-                Evaluasi</a> (Nilai min. 12) untuk membuka menu
-            ini.
+                Evaluasi</a> (Nilai min. 12) untuk membuka menu ini.
         </p>
-    </div>
     </div>
 
     <script>
@@ -92,37 +105,29 @@
         const auth = firebase.auth();
 
         // --- 2. Logika Button Unlock (Improved) ---
-
         function unlockButtons() {
             const btnSertifikat = document.getElementById('btn-sertifikat');
             const btnPeringkat = document.getElementById('btn-peringkat');
             const lockMessage = document.getElementById('lock-message');
 
             if (btnSertifikat && btnPeringkat) {
-                // Hapus disabled, tambah unlocked
                 btnSertifikat.classList.remove('disabled');
                 btnPeringkat.classList.remove('disabled');
-
                 btnSertifikat.classList.add('unlocked');
                 btnPeringkat.classList.add('unlocked');
-
                 if (lockMessage) lockMessage.style.display = 'none';
             }
         }
 
         const checkQuizStatus = async (user) => {
             if (!user) return;
-
-            // A. FAST CHECK: Cek Session Storage (Agar instan saat Back)
             const cacheKey = 'quiz_passed_' + user.uid;
             if (sessionStorage.getItem(cacheKey) === 'true') {
                 unlockButtons();
             }
 
             try {
-                // B. REAL CHECK: Cek Firestore (Langsung ke dokumen User)
                 const doc = await db.collection('quiz_results').doc(user.uid).get();
-
                 let isPassed = false;
                 if (doc.exists) {
                     const data = doc.data();
@@ -133,9 +138,8 @@
 
                 if (isPassed) {
                     unlockButtons();
-                    sessionStorage.setItem(cacheKey, 'true'); // Simpan cache
+                    sessionStorage.setItem(cacheKey, 'true');
                 } else {
-                    // Jika belum lulus
                     const btnSertifikat = document.getElementById('btn-sertifikat');
                     const btnPeringkat = document.getElementById('btn-peringkat');
                     const lockMessage = document.getElementById('lock-message');
@@ -145,18 +149,15 @@
                     if (lockMessage) lockMessage.style.display = 'block';
                     sessionStorage.removeItem(cacheKey);
                 }
-
             } catch (error) {
                 console.error("Gagal cek status kuis:", error);
             }
         };
 
-        // Auth Logic + Page Show Logic
         auth.onAuthStateChanged(user => {
             const authLink = document.getElementById('nav-auth-link');
             if (user) {
                 checkQuizStatus(user);
-                checkAttendanceToday(user.uid);
                 checkAttendanceToday(user.uid);
                 if (authLink) {
                     authLink.textContent = "Logout";
@@ -164,7 +165,6 @@
                     authLink.onclick = (e) => { e.preventDefault(); logout(); };
                 }
             } else {
-                // Show Alert and Redirect
                 if (typeof showAlert === 'function') {
                     showAlert("Akses Dibatasi", "Anda harus login untuk mengakses materi kelas.", "index.html");
                 } else {
@@ -174,23 +174,17 @@
             }
         });
 
-        // HANDLE BACK BUTTON: Jika user kembali dari halaman lain, paksa cek ulang
         window.addEventListener('pageshow', function (event) {
-            // Jika halaman diambil dari cache (history traversal)
-            if (event.persisted || (window.performance && window.performance.navigation.type === 2) || true) {
-                // Kita set true agar SELALU cek saat page show (karena kadang event.persisted false di beberapa browser)
-                const user = firebase.auth().currentUser;
-                if (user) {
-                    checkQuizStatus(user);
-                }
+            const user = firebase.auth().currentUser;
+            if (user) {
+                checkQuizStatus(user);
             }
         });
 
-        // --- 3. Logika Navbar & Scanner (Existing) ---
         function logout() {
             auth.signOut().then(() => {
                 localStorage.removeItem('isLoggedIn');
-                sessionStorage.clear(); // Bersihkan cache quiz
+                sessionStorage.clear();
                 window.location.href = "../home.html";
             }).catch((error) => console.error(error));
         }
@@ -222,21 +216,14 @@
 
         function startScanner() {
             document.getElementById('scan-modal').style.display = 'flex';
-            if (html5QrcodeScanner) {
-                // Return if already running to avoid error
-                return;
-            }
+            if (html5QrcodeScanner) return;
 
-            // Explicitly clearing before starting a new instance
             document.getElementById('reader').innerHTML = "";
-
             html5QrcodeScanner = new Html5Qrcode("reader");
             const config = { fps: 10, qrbox: { width: 250, height: 250 } };
 
-            // Request permission and get cameras
             Html5Qrcode.getCameras().then(devices => {
                 if (devices && devices.length) {
-                    // Try to find back camera
                     let cameraId = devices[0].id;
                     for (let i = 0; i < devices.length; i++) {
                         if (devices[i].label.toLowerCase().includes('back') || devices[i].label.toLowerCase().includes('belakang')) {
@@ -244,36 +231,20 @@
                             break;
                         }
                     }
-
-                    // Start scanning with specific camera ID for better stability
-                    html5QrcodeScanner.start(
-                        cameraId,
-                        config,
-                        onScanSuccess,
-                        onScanFailure
-                    ).catch(err => {
-                        console.error("Error starting scanner with ID:", err);
-                        // Fallback to generic constraint if ID fails
-                        startScannerGeneric(config);
-                    });
+                    html5QrcodeScanner.start(cameraId, config, onScanSuccess, onScanFailure)
+                        .catch(err => { startScannerGeneric(config); });
                 } else {
                     alert("Tidak ada kamera yang ditemukan pada perangkat ini.");
                 }
-            }).catch(err => {
-                console.error("Error getting cameras:", err);
-                // Often caused by HTTP context
-                startScannerGeneric(config);
-            });
+            }).catch(err => { startScannerGeneric(config); });
         }
 
         function startScannerGeneric(config) {
             html5QrcodeScanner.start({ facingMode: "environment" }, config, onScanSuccess, onScanFailure)
                 .catch(err => {
-                    console.error("Primary camera failed, trying user camera:", err);
                     html5QrcodeScanner.start({ facingMode: "user" }, config, onScanSuccess, onScanFailure)
                         .catch(err2 => {
-                            console.error("All camera attempts failed:", err2);
-                            alert("Kamera tidak dapat diakses. Pastikan Anda memberikan izin kamera di browser. \n\nCatatan: Jika Anda tidak menggunakan HTTPS (secure connection), browser mungkin memblokir akses kamera.");
+                            alert("Kamera tidak dapat diakses. Pastikan izin kamera aktif.");
                             stopScanner();
                         });
                 });
@@ -284,11 +255,8 @@
             if (html5QrcodeScanner) {
                 html5QrcodeScanner.stop().then(() => {
                     html5QrcodeScanner.clear();
-                    html5QrcodeScanner = null; // Important: reset to null so we can start again
-                }).catch(e => {
-                    console.error("Failed to stop scanner", e);
                     html5QrcodeScanner = null;
-                });
+                }).catch(e => { html5QrcodeScanner = null; });
             }
         }
 
@@ -312,9 +280,7 @@
                     try {
                         const up = await db.collection('users').doc(user.uid).get();
                         if (up.exists) nama = up.data().nama || nama;
-                    } catch (e) {
-                        console.warn("Gagal ambil nama user props:", e);
-                    }
+                    } catch (e) { }
 
                     await absenRef.set({
                         uid: user.uid,
@@ -331,12 +297,7 @@
                     if (pendingUrl) window.location.href = pendingUrl;
                 }
             } catch (e) {
-                console.error("Absensi Error:", e);
-                if (e.code === 'permission-denied') {
-                    alert("Gagal Absen: Izin Ditolak. Pastikan Anda login sebagai siswa yang benar.");
-                } else {
-                    alert("Gagal absen: " + e.message);
-                }
+                alert("Gagal absen: " + e.message);
             }
         }
 
@@ -351,19 +312,19 @@
             try {
                 const doc = await db.collection('absensi').doc(`${uid}_${today}`).get();
                 if (doc.exists) updateStatusDisplay();
-            } catch (e) {
-                console.log("Cek absensi silent fail/permission denied:", e);
-            }
+            } catch (e) { }
         }
     </script>
-    <script src="../assets/js/kelas.js"></script>
+    
     <!-- Modal Scanner -->
-    <div id="scan-modal" class="scan-overlay">
-        <div class="scan-box">
+    <div id="scan-modal" class="scan-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center;">
+        <div class="scan-box" style="background:white; padding:20px; border-radius:10px; width:320px; text-align:center;">
             <h3>Scan QR Code Guru</h3>
-            <div id="reader"></div><button onclick="stopScanner()" class="btn-close-scan">Tutup</button>
+            <div id="reader" style="width:100%; margin:15px 0;"></div>
+            <button onclick="stopScanner()" class="btn-close-scan" style="background:#dc3545; color:white; border:none; padding:8px 16px; border-radius:5px; cursor:pointer;">Tutup</button>
         </div>
     </div>
+    
     <script src="../assets/js/footer.js"></script>
 </body>
 
