@@ -5,131 +5,311 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Pengembang | Teman Belajar</title>
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <!-- Project CSS -->
     <!-- Project CSS -->
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../assets/css/components.css">
     <link rel="stylesheet" href="../assets/css/navbar.css">
-    <link rel="stylesheet" href="../assets/css/pengembang.css">
 
-    <!-- Firebase SDK (Optional for consistency if we use auth check in navbar) -->
+    <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+    <style>
+        /* =========================================
+           HALAMAN PENGEMBANG
+        ========================================= */
+
+        body {
+            margin: 0;
+            background: #ffffff;
+        }
+
+        .developer-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto 80px;
+        }
+
+        /* KARTU PENGEMBANG */
+        .developer-card {
+            min-height: 430px;
+            background: linear-gradient(135deg, #004d40, #008f70);
+            border-radius: 20px;
+            padding: 45px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            box-sizing: border-box;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.20);
+        }
+
+        /* =========================================
+           GAMBAR PENGEMBANG
+        ========================================= */
+
+        .developer-image {
+            width: 300px;
+            min-width: 300px;
+            height: 300px;
+
+            border-radius: 20px;
+            overflow: hidden;
+
+            background: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .developer-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            display: block;
+        }
+
+        /* =========================================
+           INFORMASI PENGEMBANG
+        ========================================= */
+
+        .developer-info {
+            color: #ffffff;
+            flex: 1;
+        }
+
+        .developer-info h1 {
+            margin: 0 0 15px;
+
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        .developer-info .identity {
+            font-size: 18px;
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+        }
+
+        /* =========================================
+           INFO BOX
+        ========================================= */
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.12);
+
+            border-radius: 12px;
+
+            padding: 15px 20px;
+
+            border-left: 4px solid #ffffff;
+        }
+
+        .info-box .label {
+            font-size: 14px;
+
+            opacity: 0.8;
+
+            margin-bottom: 5px;
+        }
+
+        .info-box .value {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            .developer-container {
+                width: 92%;
+                margin-top: 25px;
+            }
+
+            .developer-card {
+                flex-direction: column;
+
+                text-align: center;
+
+                padding: 30px 20px;
+
+                gap: 30px;
+            }
+
+            .developer-image {
+                width: 220px;
+                min-width: 220px;
+                height: 220px;
+            }
+
+            .developer-info h1 {
+                font-size: 30px;
+            }
+
+            .info-box {
+                text-align: left;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
-    <!-- Navbar (Will be injected by navbar.js) -->
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
     <script src="../assets/js/navbar.js"></script>
+
     <script src="../assets/js/alert.js"></script>
 
-    <div class="container">
-        <div id="slide">
 
-            <!-- Developer 2 (Urutan disesuaikan agar slide pertama) -->
-            <div class="item" style="background-image: none;">
-                <div class="image">
-                    <img src="../assets/img/img2.png" alt="Dharisman">
-                </div>
-                <div class="content">
-                    <div class="left">
-                        <h1>Dharisman S</h1>
-                        <div class="des">23833039<br> Pendidikan Teknologi Informasi</div>
-                        <!-- Button Removed or Updated to 'Contact' -->
-                    </div>
-                    <div class="right">
-                        <ul>
-                            <li>
-                                <p>Peran</p>
-                                <p>Developer & Designer</p>
-                            </li>
-                            <li>
-                                <p>Quotes</p>
-                                <p>"UuuuuRrrrraaaa."</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- =========================================
+         PENGEMBANG
+    ========================================= -->
+
+    <main class="developer-container">
+
+        <div class="developer-card">
+
+            <!-- =================================
+                 FOTO PENGEMBANG
+            ================================== -->
+
+            <div class="developer-image">
+
+                <img
+                    src="../assets/img/image1.png"
+                    alt="Hilmy Akbar Fauzi"
+                >
+
             </div>
 
-            <!-- Developer 1 -->
-            <div class="item">
-                <div class="image">
-                    <img src="../assets/img/img1.png" alt="Muh Rizqi">
-                </div>
-                <div class="content">
-                    <div class="left">
-                        <h1>Muh Rizqi T</h1>
-                        <div class="des">23831002<br> Pendidikan Teknologi Informasi</div>
-                    </div>
-                    <div class="right">
-                        <ul>
-                            <li>
-                                <p>Peran</p>
-                                <p>Fullstack Developer</p>
-                            </li>
-                            <li>
-                                <p>Quotes</p>
-                                <p>"YaaaaReeeeeuuuuu."</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Developer 3 -->
-            <div class="item">
-                <div class="image">
-                    <img src="../assets/img/img3.png" alt="Hilmy">
+            <!-- =================================
+                 INFORMASI PENGEMBANG
+            ================================== -->
+
+            <div class="developer-info">
+
+                <h1>
+                    Hilmy Akbar Fauzi
+                </h1>
+
+                <div class="identity">
+
+                    <strong>23834024</strong>
+
+                    <br>
+
+                    Pendidikan Teknologi Informasi
+
                 </div>
-                <div class="content">
-                    <div class="left">
-                        <h1>Ust. Hilmy A.F</h1>
-                        <div class="des">23834024 <br> Pendidikan Teknologi Informasi</div>
+
+
+                <!-- INFORMASI -->
+
+                <div class="info-list">
+
+                    <div class="info-box">
+
+                        <div class="label">
+                            PERAN
+                        </div>
+
+                        <div class="value">
+                            Pengembang &amp; Content
+                        </div>
+
                     </div>
-                    <div class="right">
-                        <ul>
-                            <li>
-                                <p>Peran</p>
-                                <p>Advisor & Content</p>
-                            </li>
-                            <li>
-                                <p>Quotes</p>
-                                <p>"Ilmu adalah amal."</p>
-                            </li>
-                        </ul>
+
+
+                    <div class="info-box">
+
+                        <div class="label">
+                            QUOTES
+                        </div>
+
+                        <div class="value">
+                            "Ilmu adalah amal."
+                        </div>
+
                     </div>
+
                 </div>
+
             </div>
 
         </div>
-        <div class="directional">
-            <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
-            <button id="next"><i class="fa-solid fa-angle-right"></i></button>
-        </div>
-    </div>
 
-    <script src="../assets/js/pengembang.js"></script>
+    </main>
+
+
+    <!-- =========================================
+         FIREBASE CONFIGURATION
+    ========================================= -->
+
     <script>
-        // Initialize Firebase if similar config is needed, or just let navbar handle its logic
+
         const firebaseConfig = {
+
             apiKey: "AIzaSyBaFa2_d4almWd1wBlmPdzv9aGOa0e0m3A",
+
             authDomain: "daftarhadit-dfa3a.firebaseapp.com",
+
             projectId: "daftarhadit-dfa3a",
+
             storageBucket: "daftarhadit-dfa3a.firebasestorage.app",
+
             messagingSenderId: "438675023798",
+
             appId: "1:438675023798:web:3afc376cd435f0154fc317",
+
             measurementId: "G-XCNLPJSS57"
+
         };
-        if (typeof firebase !== 'undefined' && !firebase.apps.length) {
+
+
+        if (
+            typeof firebase !== 'undefined'
+            &&
+            !firebase.apps.length
+        ) {
+
             firebase.initializeApp(firebaseConfig);
+
         }
+
     </script>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
     <script src="../assets/js/footer.js"></script>
+
 </body>
 
 </html>

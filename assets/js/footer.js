@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const footerHTML = `
         <footer class="sticky-footer">
             <div class="sticky-footer-content">
-                <p>&copy; 2025 Teman Belajar • Dikembangkan oleh Tim Pengembang PTI</p>
+                <p>&copy; 2025 Teman Belajar • Dikembangkan oleh Hilmy Akbar Fauzi</p>
             </div>
         </footer>
     `;
