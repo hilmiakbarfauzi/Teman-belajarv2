@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Lab Keamanan Jaringan | Teman Belajar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel='stylesheet' href='../assets/css/animations.css'>
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <style>
+        body {
+            background-color: #f4f7f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .lab-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .lab-header {
+            background: linear-gradient(135deg, #198754, #146c43);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(25, 135, 84, 0.2);
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .lab-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .lab-grid { grid-template-columns: 1fr; }
+        }
+        .lab-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #dee2e6;
+        }
+        .terminal-box {
+            background: #1e1e1e;
+            color: #4ec9b0;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 15px;
+            border-radius: 8px;
+            height: 220px;
+            overflow-y: auto;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-top: 15px;
+            border: 1px solid #333;
+        }
+        .terminal-input-group {
+            display: flex;
+            margin-top: 10px;
+            gap: 8px;
+        }
+        .terminal-input {
+            flex: 1;
+            background: #2d2d2d;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            outline: none;
+        }
+        .btn-lab {
+            background: #198754;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .btn-lab:hover {
+            background: #146c43;
+        }
+        .packet-item {
+            padding: 10px 14px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .packet-allowed { background: #d1e7dd; color: #0f5132; border-left: 4px solid #198754; }
+        .packet-blocked { background: #f8d7da; color: #842029; border-left: 4px solid #dc3545; }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/alert.js"></script>
+
+    <div class="lab-container">
+        <!-- Header -->
+        <div class="lab-header">
+            <div>
+                <h2><i class="fa-solid fa-laptop-code mr-10"></i> Virtual Lab: Simulasi Firewall & UFW Linux</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px; opacity: 0.9;">Praktikkan perintah pengamanan jaringan server secara langsung secara interaktif.</p>
+            </div>
+            <a href="kelas.html" style="background: white; color: #198754; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 13px;">
+                <i class="fa-solid fa-arrow-left"></i> Kembali
+            </a>
+        </div>
+
+        <div class="lab-grid">
+            <!-- Card 1: Terminal UFW Simulation -->
+            <div class="lab-card">
+                <h3 style="color: #333; font-size: 18px; margin-bottom: 10px;">
+                    <i class="fa-solid fa-terminal text-green"></i> Simulasi Terminal Linux (UFW)
+                </h3>
+                <p style="font-size: 13px; color: #666;">Ketik perintah seperti <code>sudo ufw enable</code>, <code>sudo ufw allow 22</code>, atau <code>sudo ufw status</code>.</p>
+                
+                <div class="terminal-box" id="terminal-output">
+                    root@smk-server:~# ufw status<br>
+                    Status: inactive<br>
+                    Type 'help' for available commands.<br>
+                </div>
+
+                <div class="terminal-input-group">
+                    <input type="text" id="terminal-cmd" class="terminal-input" placeholder="Ketik perintah (cth: sudo ufw allow 80)...">
+                    <button class="btn-lab" onclick="executeCommand()">Kirim</button>
+                </div>
+            </div>
+
+            <!-- Card 2: Packet Filter Simulator -->
+            <div class="lab-card">
+                <h3 style="color: #333; font-size: 18px; margin-bottom: 10px;">
+                    <i class="fa-solid fa-network-wired text-green"></i> Uji Coba Paket Masuk (Traffic Simulator)
+                </h3>
+                <p style="font-size: 13px; color: #666;">Kirim paket simulasi dari luar ke server untuk menguji apakah aturan firewall Anda berhasil.</p>
+
+                <div style="margin: 15px 0; display: flex; gap: 10px;">
+                    <select id="packet-port" class="terminal-input" style="background: white; color: #333; border: 1px solid #ced4da;">
+                        <option value="22">Port 22 (SSH)</option>
+                        <option value="80">Port 80 (HTTP)</option>
+                        <option value="443">Port 443 (HTTPS)</option>
+                        <option value="3306">Port 3306 (MySQL Database)</option>
+                    </select>
+                    <button class="btn-lab" onclick="simulatePacket()">Kirim Paket</button>
+                </div>
+
+                <h4 style="font-size: 14px; margin-top: 15px; color: #444;">Log Hasil Filter Paket:</h4>
+                <div id="packet-logs" style="margin-top: 8px; max-height: 130px; overflow-y: auto;">
+                    <div class="packet-item packet-allowed">
+                        <span>Paket masuk ke Port 443 (HTTPS)</span>
+                        <strong>DIZINKAN (Allowed)</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let ufwEnabled = false;
+        let allowedPorts = [];
+
+        function printTerminal(text, isError = false) {
+            const box = document.getElementById('terminal-output');
+            box.innerHTML += `<br><span style="color: ${isError ? '#ff6b6b' : '#4ec9b0'}">${text.replace(/\n/g, '<br>')}</span>`;
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function executeCommand() {
+            const input = document.getElementById('terminal-cmd');
+            const cmd = input.value.trim().toLowerCase();
+            if (!cmd) return;
+
+            printTerminal("root@smk-server:~# " + input.value);
+            input.value = "";
+
+            if (cmd === 'help') {
+                printTerminal("Perintah yang tersedia:\n - sudo ufw enable\n - sudo ufw disable\n - sudo ufw status\n - sudo ufw allow [port]\n - sudo ufw deny [port]");
+            } else if (cmd === 'sudo ufw enable') {
+                ufwEnabled = true;
+                printTerminal("Firewall is active and enabled on system startup");
+            } else if (cmd === 'sudo ufw disable') {
+                ufwEnabled = false;
+                printTerminal("Firewall stopped and disabled on system startup");
+            } else if (cmd === 'sudo ufw status') {
+                if (!ufwEnabled) {
+                    printTerminal("Status: inactive");
+                } else {
+                    printTerminal("Status: active\nAllowed ports: " + (allowedPorts.length > 0 ? allowedPorts.join(', ') : 'None'));
+                }
+            } else if (cmd.startsWith('sudo ufw allow ')) {
+                const port = cmd.replace('sudo ufw allow ', '').trim();
+                if (!allowedPorts.includes(port)) allowedPorts.push(port);
+                printTerminal("Rule updated successfully\nRule updated (v6) successfully");
+            } else if (cmd.startsWith('sudo ufw deny ')) {
+                const port = cmd.replace('sudo ufw deny ', '').trim();
+                allowedPorts = allowedPorts.filter(p => p !== port);
+                printTerminal("Rule updated successfully");
+            } else {
+                printTerminal("bash: " + cmd + ": command not found. Ketik 'help' untuk bantuan.", true);
+            }
+        }
+
+        document.getElementById('terminal-cmd').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') executeCommand();
+        });
+
+        function simulatePacket() {
+            const port = document.getElementById('packet-port').value;
+            const logsContainer = document.getElementById('packet-logs');
+            
+            let isAllowed = false;
+            if (!ufwEnabled) {
+                isAllowed = true;
+            } else {
+                if (allowedPorts.includes(port) || allowedPorts.includes(port + '/tcp')) {
+                    isAllowed = true;
+                }
+            }
+
+            const item = document.createElement('div');
+            item.className = `packet-item ${isAllowed ? 'packet-allowed' : 'packet-blocked'}`;
+            item.innerHTML = `<span>Paket masuk ke Port ${port}</span><strong>${isAllowed ? 'DIZINKAN (Allowed)' : 'DIBLOKIR (Blocked)'}</strong>`;
+            
+            logsContainer.prepend(item);
+        }
+    </script>
+
+    <script src="../assets/js/footer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 1 | Teman Belajar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="../assets/js/firebase-settings.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/materi.css">
+    <link rel="stylesheet" href="../assets/css/diskusi.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <script src="../assets/js/navbar.js"></script>
+
+    <div class="materi-hero hero-indikator-1 fade-in-up">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge-materi">PERTEMUAN 1</span>
+            <h1>Konsep Dasar & Prinsip CIA Triad</h1>
+            <p>Pelajari fondasi keamanan informasi, kerahasiaan, integritas, dan ketersediaan data.</p>
+        </div>
+    </div>
+
+    <div class="learning-container">
+        <!-- Card 1: Materi Teks -->
+        <article class="learning-card fade-in-up delay-1">
+            <div class="card-header">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h2>Prinsip Dasar Keamanan Informasi</h2>
+            </div>
+            <div class="card-body">
+                <h3>Pengantar Keamanan Data dan Jaringan</h3>
+                <p class="lead-text"><strong>Keamanan informasi bertujuan untuk melindungi kerahasiaan, integritas, dan ketersediaan data serta sumber daya jaringan dari akses yang tidak sah.</strong></p>
+                
+                <hr class="divider">
+
+                <h3>Pengantar Keamanan Data dan Jaringan</h3>
+                <p class="mb-3">Keamanan jaringan merupakan aspek penting dalam sistem teknologi informasi untuk melindungi data, perangkat, dan layanan jaringan dari berbagai ancaman. Hal ini menjaga kerahasiaan, integritas, dan ketersediaan data dari akses yang tidak sah.</p>
+
+                <h3>Prinsip Kerahasiaan (Confidentiality)</h3>
+                <p class="mb-3">Memastikan bahwa informasi sensitif, seperti data pribadi atau rahasia bisnis, hanya dapat diakses oleh individu atau entitas yang memiliki izin yang sah.</p>
+
+                <h3>Prinsip Integritas (Integrity)</h3>
+                <p class="mb-3">Melindungi informasi dari modifikasi, perusakan, atau penghapusan yang tidak sah, baik secara sengaja maupun tidak sengaja, untuk menjamin keakuratan data.</p>
+
+                <h3>Prinsip Ketersediaan (Availability)</h3>
+                <p class="mb-3">Menjamin bahwa informasi dan sistem terkait dapat diakses dan digunakan oleh pihak yang berhak kapan pun dibutuhkan tanpa gangguan yang signifikan.</p>
+            </div>
+        </article>
+
+        <!-- Card 2: Video Pembelajaran -->
+        <article class="learning-card fade-in-up delay-2">
+            <div class="card-header">
+                <i class="fa-solid fa-play-circle"></i>
+                <h2>Video Pembelajaran</h2>
+            </div>
+            <div class="card-body">
+                <p class="mb-4">Simak video penjelasan dan materi pembelajaran Pertemuan 1 di bawah ini:</p>
+                <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: #000;">
+                    <iframe src="https://www.youtube.com/embed/vTQB7ydoA0k" title="Video Pembelajaran Pertemuan 1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+                </div>
+            </div>
+        </article>
+
+        <!-- Diskusi Section -->
+        <div id="diskusi-wrapper" class="fade-in-up delay-3"></div>
+        <script src="../assets/js/diskusi.js"></script>
+
+        <!-- Completion Section -->
+        <div class="completion-section fade-in-up delay-3">
+            <div class="completion-box">
+                <i class="fa-solid fa-circle-check completion-icon"></i>
+                <div>
+                    <h3>Materi Selesai!</h3>
+                    <p>Anda telah mempelajari materi Pertemuan 1. Lanjutkan ke pertemuan berikutnya.</p>
+                </div>
+                <a href="materi-p2.html" class="btn-quiz">
+                    <span>Lanjut Pertemuan 2</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

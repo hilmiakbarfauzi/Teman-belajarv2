@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 2 | Teman Belajar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="../assets/js/firebase-settings.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/materi.css">
+    <link rel="stylesheet" href="../assets/css/diskusi.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <script src="../assets/js/navbar.js"></script>
+
+    <div class="materi-hero hero-indikator-1 fade-in-up">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge-materi">PERTEMUAN 2</span>
+            <h1>Autentikasi & Otorisasi</h1>
+            <p>Memahami mekanisme verifikasi identitas pengguna dan pengaturan hak akses.</p>
+        </div>
+    </div>
+
+    <div class="learning-container">
+        <!-- Card 1: Materi Teks -->
+        <article class="learning-card fade-in-up delay-1">
+            <div class="card-header">
+                <i class="fa-solid fa-user-shield"></i>
+                <h2>Mekanisme Kontrol Akses Pengguna</h2>
+            </div>
+            <div class="card-body">
+                <h3>Autentikasi & Otorisasi Sistem Jaringan</h3>
+                <p class="lead-text"><strong>Pengaturan akses yang tepat memastikan bahwa hanya pengguna berwenang yang dapat masuk ke dalam sistem dan mengakses data sesuai perannya.</strong></p>
+                
+                <hr class="divider">
+
+                <h3>Autentikasi (Authentication)</h3>
+                <p class="mb-3">Proses verifikasi identitas pengguna sebelum diberikan akses ke sistem atau jaringan. Tujuannya untuk memastikan bahwa pengguna yang mengakses sistem adalah pihak yang berwenang (contoh: kata sandi, biometrik, two-factor authentication).</p>
+
+                <h3>Otorisasi (Authorization)</h3>
+                <p class="mb-3">Proses pemberian hak akses kepada pengguna berdasarkan peran atau kewenangan tertentu (role-based access control). Membatasi interaksi pengguna sesuai kebutuhan tugas mereka.</p>
+
+                <h3>Perbedaan & Penerapan</h3>
+                <p class="mb-3">Autentikasi memastikan 'siapa Anda', sedangkan otorisasi menentukan 'apa yang boleh Anda lakukan'. Kedua komponen ini saling terpadu dalam menjaga keamanan sistem informasi.</p>
+            </div>
+        </article>
+
+        <!-- Card 2: Video Pembelajaran -->
+        <article class="learning-card fade-in-up delay-2">
+            <div class="card-header">
+                <i class="fa-solid fa-play-circle"></i>
+                <h2>Video Pembelajaran</h2>
+            </div>
+            <div class="card-body">
+                <p class="mb-4">Simak video penjelasan dan materi pembelajaran Pertemuan 2 di bawah ini:</p>
+                <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: #000;">
+                    <iframe src="https://www.youtube.com/embed/vTQB7ydoA0k" title="Video Pembelajaran Pertemuan 2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+                </div>
+            </div>
+        </article>
+
+        <!-- Diskusi Section -->
+        <div id="diskusi-wrapper" class="fade-in-up delay-3"></div>
+        <script src="../assets/js/diskusi.js"></script>
+
+        <!-- Completion Section -->
+        <div class="completion-section fade-in-up delay-3">
+            <div class="completion-box">
+                <i class="fa-solid fa-circle-check completion-icon"></i>
+                <div>
+                    <h3>Materi Selesai!</h3>
+                    <p>Anda telah mempelajari materi Pertemuan 2. Lanjutkan ke pertemuan berikutnya.</p>
+                </div>
+                <a href="materi-p3.html" class="btn-quiz">
+                    <span>Lanjut Pertemuan 3</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

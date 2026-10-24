@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 3 | Teman Belajar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="../assets/js/firebase-settings.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/materi.css">
+    <link rel="stylesheet" href="../assets/css/diskusi.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <script src="../assets/js/navbar.js"></script>
+
+    <div class="materi-hero hero-indikator-1 fade-in-up">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge-materi">PERTEMUAN 3</span>
+            <h1>Enkripsi & Pelindungan Data</h1>
+            <p>Mempelajari teknik kriptografi untuk mengamankan data saat disimpan maupun dikirim.</p>
+        </div>
+    </div>
+
+    <div class="learning-container">
+        <!-- Card 1: Materi Teks -->
+        <article class="learning-card fade-in-up delay-1">
+            <div class="card-header">
+                <i class="fa-solid fa-lock"></i>
+                <h2>Kriptografi & Komunikasi Aman</h2>
+            </div>
+            <div class="card-body">
+                <h3>Enkripsi & Mekanisme Pengamanan Data</h3>
+                <p class="lead-text"><strong>Enkripsi mengubah data menjadi format yang tidak dapat dibaca tanpa kunci dekripsi yang sesuai untuk melindungi kerahasiaan informasi.</strong></p>
+                
+                <hr class="divider">
+
+                <h3>Fungsi Dasar Enkripsi</h3>
+                <p class="mb-3">Melindungi kerahasiaan data baik saat disimpan (data at rest) maupun saat dikirimkan melalui jaringan (data in transit) menggunakan algoritma matematika.</p>
+
+                <h3>Jenis Enkripsi</h3>
+                <p class="mb-3">Penggunaan enkripsi simetris (kunci yang sama untuk enkripsi & dekripsi) dan asimetris (kunci publik dan privat) untuk pengamanan data.</p>
+
+                <h3>Penerapan Komunikasi Data</h3>
+                <p class="mb-3">Penerapan protokol HTTPS, Virtual Private Network (VPN), tanda tangan digital, serta fungsi hash untuk menjaga keaslian dan integritas data.</p>
+            </div>
+        </article>
+
+        <!-- Card 2: Video Pembelajaran -->
+        <article class="learning-card fade-in-up delay-2">
+            <div class="card-header">
+                <i class="fa-solid fa-play-circle"></i>
+                <h2>Video Pembelajaran</h2>
+            </div>
+            <div class="card-body">
+                <p class="mb-4">Simak video penjelasan dan materi pembelajaran Pertemuan 3 di bawah ini:</p>
+                <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: #000;">
+                    <iframe src="https://www.youtube.com/embed/vTQB7ydoA0k" title="Video Pembelajaran Pertemuan 3" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+                </div>
+            </div>
+        </article>
+
+        <!-- Diskusi Section -->
+        <div id="diskusi-wrapper" class="fade-in-up delay-3"></div>
+        <script src="../assets/js/diskusi.js"></script>
+
+        <!-- Completion Section -->
+        <div class="completion-section fade-in-up delay-3">
+            <div class="completion-box">
+                <i class="fa-solid fa-circle-check completion-icon"></i>
+                <div>
+                    <h3>Materi Selesai!</h3>
+                    <p>Anda telah mempelajari materi Pertemuan 3. Lanjutkan ke pertemuan berikutnya.</p>
+                </div>
+                <a href="materi-p4.html" class="btn-quiz">
+                    <span>Lanjut Pertemuan 4</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

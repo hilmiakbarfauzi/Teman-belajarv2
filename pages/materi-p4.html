@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 4 | Teman Belajar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="../assets/js/firebase-settings.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/materi.css">
+    <link rel="stylesheet" href="../assets/css/diskusi.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <script src="../assets/js/navbar.js"></script>
+
+    <div class="materi-hero hero-indikator-1 fade-in-up">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge-materi">PERTEMUAN 4</span>
+            <h1>Firewall & Sistem IDS/IPS</h1>
+            <p>Mempelajari pengaman jaringan dan pemantauan lalu lintas data terhadap ancaman.</p>
+        </div>
+    </div>
+
+    <div class="learning-container">
+        <!-- Card 1: Materi Teks -->
+        <article class="learning-card fade-in-up delay-1">
+            <div class="card-header">
+                <i class="fa-solid fa-shield-alt"></i>
+                <h2>Perangkat Pengaman & Deteksi Ancaman</h2>
+            </div>
+            <div class="card-body">
+                <h3>Firewall, IDS, & IPS</h3>
+                <p class="lead-text"><strong>Firewall dan sistem IDS/IPS bekerja secara terpadu untuk menyaring lalu lintas data serta mendeteksi dan mencegah serangan siber.</strong></p>
+                
+                <hr class="divider">
+
+                <h3>Fungsi Firewall</h3>
+                <p class="mb-3">Berfungsi sebagai pengaman jaringan yang mengontrol lalu lintas data masuk dan keluar, serta mencegah akses tidak sah dari luar jaringan.</p>
+
+                <h3>Ancaman Jaringan</h3>
+                <p class="mb-3">Mengenal berbagai serangan siber seperti malware, peretasan (hacking), pencurian data, serta serangan DoS/DDoS.</p>
+
+                <h3>Intrusion Detection System (IDS)</h3>
+                <p class="mb-3">Sistem untuk memantau dan mendeteksi aktivitas mencurigakan atau tanda-tanda serangan pada jaringan.</p>
+
+                <h3>Intrusion Prevention System (IPS)</h3>
+                <p class="mb-3">Sistem yang tidak hanya mendeteksi tetapi juga melakukan tindakan pencegahan secara otomatis untuk menghentikan serangan.</p>
+            </div>
+        </article>
+
+        <!-- Card 2: Video Pembelajaran -->
+        <article class="learning-card fade-in-up delay-2">
+            <div class="card-header">
+                <i class="fa-solid fa-play-circle"></i>
+                <h2>Video Pembelajaran</h2>
+            </div>
+            <div class="card-body">
+                <p class="mb-4">Simak video penjelasan dan materi pembelajaran Pertemuan 4 di bawah ini:</p>
+                <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: #000;">
+                    <iframe src="https://www.youtube.com/embed/vTQB7ydoA0k" title="Video Pembelajaran Pertemuan 4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+                </div>
+            </div>
+        </article>
+
+        <!-- Diskusi Section -->
+        <div id="diskusi-wrapper" class="fade-in-up delay-3"></div>
+        <script src="../assets/js/diskusi.js"></script>
+
+        <!-- Completion Section -->
+        <div class="completion-section fade-in-up delay-3">
+            <div class="completion-box">
+                <i class="fa-solid fa-circle-check completion-icon"></i>
+                <div>
+                    <h3>Semua Materi Selesai!</h3>
+                    <p>Anda telah menyelesaikan seluruh rangkaian materi pembelajaran.</p>
+                </div>
+                <a href="kelas.html" class="btn-quiz">
+                    <span>Kembali ke Kelas</span>
+                    <i class="fa-solid fa-house"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
