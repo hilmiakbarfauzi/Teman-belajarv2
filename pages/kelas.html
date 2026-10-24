@@ -290,7 +290,11 @@
                 if (doc.exists) {
                     alert("Sudah absen hari ini!");
                     updateStatusDisplay();
-                    if (pendingUrl) window.location.href = pendingUrl;
+                    if (pendingUrl) {
+                        window.location.href = pendingUrl;
+                    } else {
+                        window.location.href = 'kelas.html';
+                    }
                 } else {
                     let nama = user.displayName || user.email;
                     try {
@@ -310,7 +314,11 @@
 
                     alert("Absensi Berhasil!");
                     updateStatusDisplay();
-                    if (pendingUrl) window.location.href = pendingUrl;
+                    if (pendingUrl) {
+                        window.location.href = pendingUrl;
+                    } else {
+                        window.location.href = 'kelas.html';
+                    }
                 }
             } catch (e) {
                 alert("Gagal absen: " + e.message);
