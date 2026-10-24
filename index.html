@@ -1,303 +1,308 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Login Page | Teman Belajar</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/global.css">
-  <link rel="stylesheet" href="assets/css/layout.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/login.css">
-  <link rel="stylesheet" href="assets/css/animations.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login Page | Teman Belajar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
 
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 </head>
 
 <body>
 
-  <div class="container" id="container">
+    <div class="container" id="container">
 
-    <div class="form-container sign-up">
-      <form id="signup-form">
-        <h1>Create Account</h1>
-        <div class="social-icons">
-          <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+        <!-- Form Sign Up -->
+        <div class="form-container sign-up">
+            <form id="signup-form">
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>use your email for registration</span>
+
+                <input type="text" id="signup-name" placeholder="Nama Lengkap" required>
+                <input type="text" id="signup-nis" placeholder="NIS" required>
+                <input type="text" id="signup-class" placeholder="Kelas" required>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+
+                <button type="submit">Sign Up</button>
+                <div class="mobile-toggle">
+                    Already have an account? <a id="mobile-login-btn">Sign In</a>
+                </div>
+            </form>
         </div>
-        <span>use your email for registration</span>
 
-        <input type="text" id="signup-name" placeholder="Nama Lengkap" required>
-        <input type="text" id="signup-nis" placeholder="NIS" required>
-        <input type="text" id="signup-class" placeholder="Kelas" required>
-        <input type="email" id="signup-email" placeholder="Email" required>
-        <input type="password" id="signup-password" placeholder="Password" required>
+        <!-- Form Sign In -->
+        <div class="form-container sign-in">
+            <form id="signin-form">
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>use your email and password</span>
 
-        <button type="submit">Sign Up</button>
-        <div class="mobile-toggle">
-          Already have an account? <a id="mobile-login-btn">Sign In</a>
+                <input type="email" id="signin-email" placeholder="Email" required>
+                <input type="password" id="signin-password" placeholder="Password" required>
+
+                <a href="#">Forget Your Password?</a>
+                <button type="submit">Sign In</button>
+                <div class="mobile-toggle">
+                    Don't have an account? <a id="mobile-register-btn">Sign Up</a>
+                </div>
+                
+
+            </form>
         </div>
-      </form>
+
+        <!-- Toggle Panel -->
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="form-container sign-in">
-      <form id="signin-form">
-        <h1>Sign In</h1>
-        <div class="social-icons">
-          <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-          <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+    <!-- Custom Modal -->
+    <div id="custom-modal" class="custom-modal-overlay">
+        <div class="custom-modal-content">
+            <div id="modal-icon" class="modal-icon"></div>
+            <h2 id="modal-title"></h2>
+            <p id="modal-message"></p>
+            <button id="modal-close-btn" class="modal-close-btn">OK</button>
         </div>
-        <span>use your email and password</span>
-
-        <input type="email" id="signin-email" placeholder="Email" required>
-        <input type="password" id="signin-password" placeholder="Password" required>
-
-        <a href="#">Forget Your Password?</a>
-        <button type="submit">Sign In</button>
-        <div class="mobile-toggle">
-          Don't have an account? <a id="mobile-register-btn">Sign Up</a>
-        </div>
-      </form>
     </div>
 
-    <div class="toggle-container">
-      <div class="toggle">
-        <div class="toggle-panel toggle-left">
-          <h1>Welcome Back!</h1>
-          <p>Enter your personal details to use all of site features</p>
-          <button class="hidden" id="login">Sign In</button>
-        </div>
-        <div class="toggle-panel toggle-right">
-          <h1>Hello, Friend!</h1>
-          <p>Register with your personal details to use all of site features</p>
-          <button class="hidden" id="register">Sign Up</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <script>
+        // 1. Konfigurasi Firebase Anda
+        const firebaseConfig = {
+            apiKey: "AIzaSyBaFa2_d4almWd1wBlmPdzv9aGOa0e0m3A",
+            authDomain: "daftarhadit-dfa3a.firebaseapp.com",
+            projectId: "daftarhadit-dfa3a",
+            storageBucket: "daftarhadit-dfa3a.firebasestorage.app",
+            messagingSenderId: "438675023798",
+            appId: "1:438675023798:web:3afc376cd435f0154fc317",
+            measurementId: "G-XCNLPJSS57"
+        };
 
-  <div id="custom-modal" class="custom-modal-overlay">
-    <div class="custom-modal-content">
-      <div id="modal-icon" class="modal-icon"></div>
-      <h2 id="modal-title"></h2>
-      <p id="modal-message"></p>
-      <button id="modal-close-btn" class="modal-close-btn">OK</button>
-    </div>
-  </div>
-  <script>
-    // 1. Konfigurasi Firebase Anda
-    const firebaseConfig = {
-      apiKey: "AIzaSyBaFa2_d4almWd1wBlmPdzv9aGOa0e0m3A",
-      authDomain: "daftarhadit-dfa3a.firebaseapp.com",
-      projectId: "daftarhadit-dfa3a",
-      storageBucket: "daftarhadit-dfa3a.firebasestorage.app",
-      messagingSenderId: "438675023798",
-      appId: "1:438675023798:web:3afc376cd435f0154fc317",
-      measurementId: "G-XCNLPJSS57"
-    };
+        // Inisialisasi Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
 
-    // Inisialisasi Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.firestore();
+        // --- Kontrol Tampilan (Switch Form) ---
+        const container = document.getElementById('container');
+        const registerBtn = document.getElementById('register');
+        const loginBtn = document.getElementById('login');
 
-    // --- Kontrol Tampilan (Switch Form) ---
-    const container = document.getElementById('container');
-    const registerBtn = document.getElementById('register');
-    const loginBtn = document.getElementById('login');
-
-    registerBtn.addEventListener('click', () => {
-      container.classList.add("active");
-    });
-
-    loginBtn.addEventListener('click', () => {
-      container.classList.remove("active");
-    });
-
-    // Mobile Toggle Logic
-    const mobileLoginBtn = document.getElementById('mobile-login-btn');
-    const mobileRegisterBtn = document.getElementById('mobile-register-btn');
-
-    if (mobileLoginBtn) {
-      mobileLoginBtn.addEventListener('click', () => {
-        container.classList.remove("active");
-      });
-    }
-
-    if (mobileRegisterBtn) {
-      mobileRegisterBtn.addEventListener('click', () => {
-        container.classList.add("active");
-      });
-    }
-
-    // --- Logika Firebase Authentication ---
-    const signupForm = document.getElementById('signup-form');
-    const signinForm = document.getElementById('signin-form');
-
-    const signupEmail = document.getElementById('signup-email');
-    const signupPassword = document.getElementById('signup-password');
-
-    const signinEmail = document.getElementById('signin-email');
-    const signinPassword = document.getElementById('signin-password');
-
-
-    // #################################################
-    // # FUNGSI MODAL KUSTOM
-    // #################################################
-    const modal = document.getElementById('custom-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalMessage = document.getElementById('modal-message');
-    const modalIcon = document.getElementById('modal-icon');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
-
-    // Fungsi untuk menampilkan modal dengan pesan kustom
-    function showCustomAlert(title, message, iconClass, successCallback = null) {
-      modalTitle.textContent = title;
-      modalMessage.innerHTML = message;
-      modalIcon.className = 'modal-icon ' + iconClass;
-
-      modalCloseBtn.onclick = null;
-
-      modalCloseBtn.onclick = () => {
-        modal.style.display = 'none';
-        if (successCallback) {
-          successCallback();
-        }
-      };
-
-      modal.style.display = 'flex';
-    }
-
-
-    // #################################################
-    // # 1. FUNGSI SIGN UP (Mendaftar) - GUNAKAN MODAL KUSTOM
-    // #################################################
-
-    const signupName = document.getElementById('signup-name');
-    const signupNis = document.getElementById('signup-nis');
-    const signupClass = document.getElementById('signup-class');
-
-    signupForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      console.log("Attempting to Register...");
-
-      const name = signupName.value;
-      const nis = signupNis.value;
-      const classId = signupClass.value;
-      const email = signupEmail.value;
-      const password = signupPassword.value;
-
-      console.log("Data collected:", { name, nis, classId, email });
-
-      if (password.length < 6) {
-        showCustomAlert("Gagal Mendaftar", "Password harus minimal **6 karakter**.", "fas fa-exclamation-triangle error-icon");
-        return;
-      }
-
-      try {
-        // 1. Buat akun di Firebase Authentication
-        console.log("Creating user in Auth...");
-        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-        const user = userCredential.user;
-        console.log("User created in Auth:", user.uid);
-
-        // 2. Simpan data siswa ke Firestore
-        console.log("Saving to Firestore...");
-
-        // Ensure Firestore is initialized
-        if (!db) {
-          throw new Error("Firestore database is not initialized.");
-        }
-
-        await db.collection('users').doc(user.uid).set({
-          nama: name,
-          nis: nis,
-          email: email,
-          class_id: classId,
-          role: "siswa",
-          created_at: firebase.firestore.FieldValue.serverTimestamp()
+        registerBtn.addEventListener('click', () => {
+            container.classList.add("active");
         });
-        console.log("Data saved to Firestore.");
 
-        // Modal Sukses dan Navigasi
-        showCustomAlert(
-          "🎉 Pendaftaran Berhasil!",
-          "Akun Anda telah dibuat dan data telah disimpan. Anda akan diarahkan ke halaman Pembelajaran.",
-          "fas fa-check-circle success-icon",
-          () => {
-            window.location.href = "pages/kelas.html";
-          }
-        );
+        loginBtn.addEventListener('click', () => {
+            container.classList.remove("active");
+        });
 
-      } catch (error) {
-        console.error("Full Registration Error:", error);
+        // Mobile Toggle Logic
+        const mobileLoginBtn = document.getElementById('mobile-login-btn');
+        const mobileRegisterBtn = document.getElementById('mobile-register-btn');
 
-        const errorMessage = error.message;
-        let userMessage = "Pendaftaran gagal. Silakan coba lagi.";
-
-        if (error.code === 'auth/email-already-in-use') {
-          userMessage = 'Email sudah terdaftar. Silakan **Sign In**.';
-        } else if (error.code === 'auth/invalid-email') {
-          userMessage = 'Format email tidak valid.';
-        } else if (error.message.includes("Firestore")) {
-          userMessage = "Gagal menyimpan data (Firestore). Koneksi buruk atau izin ditolak.";
-        } else {
-          userMessage = errorMessage;
+        if (mobileLoginBtn) {
+            mobileLoginBtn.addEventListener('click', () => {
+                container.classList.remove("active");
+            });
         }
 
-        // Fallback alert if custom modal fails
-        try {
-          showCustomAlert("Gagal Mendaftar", userMessage, "fas fa-times-circle error-icon");
-        } catch (modalError) {
-          alert("Gagal Mendaftar: " + userMessage);
-        }
-      }
-    });
-
-
-    // #################################################
-    // # 2. FUNGSI SIGN IN (Masuk) - GUNAKAN MODAL KUSTOM
-    // #################################################
-
-    signinForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const email = signinEmail.value;
-      const password = signinPassword.value;
-
-      try {
-        const userCredential = await auth.signInWithEmailAndPassword(email, password);
-
-        showCustomAlert(
-          "✅ Login Berhasil!",
-          "Selamat datang! Anda akan diarahkan ke halaman Kelas.",
-          "fas fa-sign-in-alt success-icon",
-          () => {
-            localStorage.setItem('isLoggedIn', 'true'); // Flag untuk UI responsif
-            window.location.href = "pages/kelas.html";
-          }
-        );
-
-      } catch (error) {
-        const errorMessage = error.message;
-        let userMessage = "Login gagal. Silakan coba lagi.";
-
-        if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
-          userMessage = 'Email atau **Kata Sandi** salah.';
+        if (mobileRegisterBtn) {
+            mobileRegisterBtn.addEventListener('click', () => {
+                container.classList.add("active");
+            });
         }
 
-        showCustomAlert("Gagal Login", userMessage, "fas fa-lock error-icon");
-        console.error("Kesalahan Login:", error);
-      }
-    });
-  </script>
+        // --- Logika Firebase Authentication ---
+        const signupForm = document.getElementById('signup-form');
+        const signinForm = document.getElementById('signin-form');
+
+        const signupEmail = document.getElementById('signup-email');
+        const signupPassword = document.getElementById('signup-password');
+
+        const signinEmail = document.getElementById('signin-email');
+        const signinPassword = document.getElementById('signin-password');
+
+
+        // #################################################
+        // # FUNGSI MODAL KUSTOM
+        // #################################################
+        const modal = document.getElementById('custom-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalIcon = document.getElementById('modal-icon');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        // Fungsi untuk menampilkan modal dengan pesan kustom
+        function showCustomAlert(title, message, iconClass, successCallback = null) {
+            modalTitle.textContent = title;
+            modalMessage.innerHTML = message;
+            modalIcon.className = 'modal-icon ' + iconClass;
+
+            modalCloseBtn.onclick = null;
+
+            modalCloseBtn.onclick = () => {
+                modal.style.display = 'none';
+                if (successCallback) {
+                    successCallback();
+                }
+            };
+
+            modal.style.display = 'flex';
+        }
+
+
+        // #################################################
+        // # 1. FUNGSI SIGN UP (Mendaftar) - GUNAKAN MODAL KUSTOM
+        // #################################################
+
+        const signupName = document.getElementById('signup-name');
+        const signupNis = document.getElementById('signup-nis');
+        const signupClass = document.getElementById('signup-class');
+
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            console.log("Attempting to Register...");
+
+            const name = signupName.value;
+            const nis = signupNis.value;
+            const classId = signupClass.value;
+            const email = signupEmail.value;
+            const password = signupPassword.value;
+
+            console.log("Data collected:", { name, nis, classId, email });
+
+            if (password.length < 6) {
+                showCustomAlert("Gagal Mendaftar", "Password harus minimal **6 karakter**.", "fas fa-exclamation-triangle error-icon");
+                return;
+            }
+
+            try {
+                // 1. Buat akun di Firebase Authentication
+                console.log("Creating user in Auth...");
+                const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                const user = userCredential.user;
+                console.log("User created in Auth:", user.uid);
+
+                // 2. Simpan data siswa ke Firestore
+                console.log("Saving to Firestore...");
+
+                if (!db) {
+                    throw new Error("Firestore database is not initialized.");
+                }
+
+                await db.collection('users').doc(user.uid).set({
+                    nama: name,
+                    nis: nis,
+                    email: email,
+                    class_id: classId,
+                    role: "siswa",
+                    created_at: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                console.log("Data saved to Firestore.");
+
+                // Modal Sukses dan Navigasi
+                showCustomAlert(
+                    "🎉 Pendaftaran Berhasil!",
+                    "Akun Anda telah dibuat dan data telah disimpan. Anda akan diarahkan ke halaman Pembelajaran.",
+                    "fas fa-check-circle success-icon",
+                    () => {
+                        window.location.href = "pages/panduan.html";
+                    }
+                );
+
+            } catch (error) {
+                console.error("Full Registration Error:", error);
+
+                const errorMessage = error.message;
+                let userMessage = "Pendaftaran gagal. Silakan coba lagi.";
+
+                if (error.code === 'auth/email-already-in-use') {
+                    userMessage = 'Email sudah terdaftar. Silakan **Sign In**.';
+                } else if (error.code === 'auth/invalid-email') {
+                    userMessage = 'Format email tidak valid.';
+                } else if (error.message.includes("Firestore")) {
+                    userMessage = "Gagal menyimpan data (Firestore). Koneksi buruk atau izin ditolak.";
+                } else {
+                    userMessage = errorMessage;
+                }
+
+                try {
+                    showCustomAlert("Gagal Mendaftar", userMessage, "fas fa-times-circle error-icon");
+                } catch (modalError) {
+                    alert("Gagal Mendaftar: " + userMessage);
+                }
+            }
+        });
+
+
+        // #################################################
+        // # 2. FUNGSI SIGN IN (Masuk) - GUNAKAN MODAL KUSTOM
+        // #################################################
+
+        signinForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = signinEmail.value;
+            const password = signinPassword.value;
+
+            try {
+                const userCredential = await auth.signInWithEmailAndPassword(email, password);
+
+                showCustomAlert(
+                    "✅ Login Berhasil!",
+                    "Selamat datang! Anda akan diarahkan ke halaman Kelas.",
+                    "fas fa-sign-in-alt success-icon",
+                    () => {
+                        localStorage.setItem('isLoggedIn', 'true');
+                        window.location.href = "pages/panduan.html";
+                    }
+                );
+
+            } catch (error) {
+                const errorMessage = error.message;
+                let userMessage = "Login gagal. Silakan coba lagi.";
+
+                if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+                    userMessage = 'Email atau **Kata Sandi** salah.';
+                }
+
+                showCustomAlert("Gagal Login", userMessage, "fas fa-lock error-icon");
+                console.error("Kesalahan Login:", error);
+            }
+        });
+    </script>
 </body>
 
 </html>
